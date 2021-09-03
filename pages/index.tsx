@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 import { Button } from '../components/Button'
 
@@ -28,12 +29,17 @@ const Home: NextPage = () => {
           <div className={styles.headerHowItWorks}>How it works</div>
           <div className={styles.headerCommunuty}>Communuty</div>
           {/* ボタンコンポーネント作成 */}
-          <Button
-            title="createボタン"
-            message="作品投稿画面に遷移します"
-            color="white"
-            backColor="black"
-          />
+
+          <Link href="/createTreasure">
+            <a>
+              <Button
+                title="createボタン"
+                message="作品投稿画面に遷移します"
+                color="white"
+                backColor="black"
+              />
+            </a>
+          </Link>
 
           <Link href="/connectMyWallet">
             <a>
@@ -45,6 +51,7 @@ const Home: NextPage = () => {
               />
             </a>
           </Link>
+        
         </div>
       </header>
 
