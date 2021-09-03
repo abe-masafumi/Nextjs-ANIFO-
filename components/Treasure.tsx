@@ -30,7 +30,7 @@ export const Treasure = () => {
         display="flex"
       />
 
-<Box p="6" width={335}>
+      <Box p="6" width={335}>
         <Box d="flex" alignItems="baseline">
           <Badge borderRadius="full" px="2" colorScheme="teal">
             New
@@ -71,4 +71,3 @@ export const Treasure = () => {
     </Box>
   )
 }
-
