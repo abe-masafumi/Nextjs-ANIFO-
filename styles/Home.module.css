@@ -1,12 +1,42 @@
 .container {
   min-height: 100vh;
-  padding: 0 0.5rem;
+  /* padding: 0 0.5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+/* ------ヘッダーcss------ */
+.header {
+  background: orange;
+  height: 65px;
+  width: 100%;
+  padding-left: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.headerMenue {
+  background: gray;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+.headerMenue div {
+  margin-left: 10px;
+}
+.headerSearch {
+  background: white;
+  width: 450px;
+}
+
+.headerImageBox {
+  background: pink;
+  width: 160px;
+  height: 50px;
+}
+/* ------------------------ */
 
 .main {
   padding: 5rem 0;
