@@ -1,0 +1,12 @@
+.buttonContainer {
+  background: orange;
+  display: flex;
+}
+
+.multipleButton,
+.singleButton {
+  background: gray;
+  width: 80px;
+  height: 130px;
+  margin: 20px;
+}
