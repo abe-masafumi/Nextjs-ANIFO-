@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import styles from '../styles/createTreasure.module.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function createTreasure() {
   return (
-    <div>
+    <div className="container">
       <header>{/* ここにindexのheaderを入れる(headerをコンポーネントに？) */}</header>
       <main>
         <Link href="/">

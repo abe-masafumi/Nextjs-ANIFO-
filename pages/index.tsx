@@ -5,6 +5,8 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 import { Button } from '../components/Button'
+import { Treasure } from '../components/Treasure'
+import { Search } from '../components/Search'
 
 const Home: NextPage = () => {
   return (
@@ -21,7 +23,7 @@ const Home: NextPage = () => {
         </div>
         {/* ヘッダーメニュー */}
         <div className={styles.headerMenue}>
-          <div className={styles.headerSearch}>検索スペース</div>
+          <Search />
           <div className={styles.headerExplore}>Explore</div>
           <div className={styles.headerMyItems}>My items</div>
           <div className={styles.headerFollowing}>Following</div>
@@ -51,7 +53,6 @@ const Home: NextPage = () => {
               />
             </a>
           </Link>
-        
         </div>
       </header>
 
@@ -63,7 +64,7 @@ const Home: NextPage = () => {
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.js</code>
         </p>
-
+        <Treasure />
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
