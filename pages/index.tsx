@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 
 import { Button } from '../components/Button'
+import { Treasure } from '../components/Treasure'
 
 const Home: NextPage = () => {
   return (
@@ -63,7 +64,7 @@ const Home: NextPage = () => {
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.js</code>
         </p>
-
+        <Treasure/>
         <div className={styles.grid}>
           <a href="https://nextjs.org/docs" className={styles.card}>
             <h2>Documentation &rarr;</h2>
