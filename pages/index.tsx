@@ -28,9 +28,23 @@ const Home: NextPage = () => {
           <div className={styles.headerHowItWorks}>How it works</div>
           <div className={styles.headerCommunuty}>Communuty</div>
           {/* ボタンコンポーネント作成 */}
-          <Button title="createボタン" message="作品投稿画面に遷移します" color="white" backColor="black" />
-          <Button title="ウォレットに接続" message="ウォレット接続画面に遷移します" color="white" backColor="black" />
+          <Button
+            title="createボタン"
+            message="作品投稿画面に遷移します"
+            color="white"
+            backColor="black"
+          />
 
+          <Link href="/connectMyWallet">
+            <a>
+              <Button
+                title="ウォレットに接続"
+                message="ウォレット接続画面に遷移します"
+                color="white"
+                backColor="black"
+              />
+            </a>
+          </Link>
         </div>
       </header>
 
