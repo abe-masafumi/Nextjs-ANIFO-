@@ -5,6 +5,7 @@ import { Button } from '../components/Button'
 import {Header} from '../components/Header'
 import {MainButton} from '../components/MainButton'
 import {Footer} from '../components/Footer'
+import {H6} from '../components/H6'
 
 
 export default function createSingleTreasure() {
@@ -21,40 +22,39 @@ export default function createSingleTreasure() {
             <h1>単一の収集品を作成する</h1>
             {/* ファイルのアップロード */}
             <div>
-              <p>ファイルをアップロードする</p>
+              <h4>ファイルをアップロードする</h4>
               <div className="border border-info w-100 rounded" style={{ height: 300 }}></div>
             </div>
             <div style={{ height: 40 }}></div>
             {/* 市場に出す */}
             <div>
-              <p>市場に出す</p>
-              <p>ユーザーがNFTをすぐに購入できるように価格を入力します</p>
+              <h4>市場に出す</h4>
+              <H6 title={"ユーザーがNFTをすぐに購入できるように価格を入力します"} />
               <div className="row" style={{ justifyContent: 'space-between' }}>
 
               {/* コンポーネントをいろんなところで使いまわしているけど、ここだけonclickイベントを入れたい！それはできるのか？
               コンポーネント側で処理の仕方がわからない
               それかコンポーネントを分けるか */}
               <MainButton width={250} height={250} title={"1"} />
-
               <MainButton width={250} height={250} title={"2"} />
-
               <MainButton width={250} height={250} title={"3"} />
 
               </div>
             </div>
             <div style={{ height: 40 }}></div>
             {/* 価格 */}
-            <p>価格</p>
-            <p>サービス料2.5％</p>
-            <p>あなたは0ETHを受け取ります</p>
+            <h4>価格</h4>
+            <H6 title={"サービス料2.5％"} />
+            <H6 title={"あなたは0ETHを受け取ります"} />
             {/* 購入したらロックを解除 */}
             <div>
-              <p>購入したらロックを解除</p>
-              <p>トランザクションが成功すると、コンテンツのロックが解除されます</p>
+              <h4>購入したらロックを解除⇦これの意味がわからない</h4>
+            <H6 title={"トランザクションが成功すると、コンテンツのロックが解除されます"} />
+
             </div>
             {/* コレクションを選択 */}
             <div>
-              <p>コレクションを選択</p>
+              <h4>コレクションを選択</h4>
               <div className="row">
               <MainButton width={250} height={250} title={"1"} />
               <MainButton width={250} height={250} title={"2"} />
@@ -62,11 +62,14 @@ export default function createSingleTreasure() {
               </div>
             </div>
             {/* 題名 */}
-            <p>題名</p>
+            <h4>題名</h4>
             {/* 説明（オプション） */}
-            <p>説明（オプション）</p>
+            <h4>説明<span className="text-white-50" style={{fontSize:16}}>（オプション）</span></h4>
+            <H6 title={"改行が保持されます"} />
+
             {/* 使用料 */}
-            <p>使用料</p>
+            <h4>使用料</h4>
+            <H6 title={"推奨：0％、10％、20％、30％。最大は50％です"} />
             <Button
               title={"アイテムを作成する"}
               message={"アイテムを作成しますか？"}
