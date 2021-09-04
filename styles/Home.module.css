@@ -1,4 +1,11 @@
+/* :root {
+  --main: #0b1118;
+  --main_light: #152032;
+  --colore: #eef0e6;
+} */
+
 .container {
+  background: #0b1118;
   min-height: 100vh;
   /* padding: 0 0.5rem; */
   display: flex;
@@ -9,7 +16,7 @@
 }
 /* ------ヘッダーcss------ */
 .header {
-  background: orange;
+  background: #152032;
   height: 65px;
   width: 100%;
   padding-left: 1rem;
@@ -18,34 +25,39 @@
 }
 
 .headerMenue {
-  background: gray;
+  /* background: gray; */
   display: flex;
   width: 100%;
   justify-content: space-around;
+  align-items: center;
+  color: #eef0e6;
 }
 .headerMenue div {
   margin-left: 10px;
 }
 .headerSearch {
-  background: white;
+  /* background: black; */
   width: 450px;
 }
 
 .headerImageBox {
-  background: pink;
+  /* background: pink; */
   width: 160px;
   height: 50px;
 }
 /* ------------------------ */
 
-.main {
-  padding: 5rem 0;
+/* .main {
+  padding: 2rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+  width: 100%;
+  overflow-x: auto;
+  display: inline-block;
+} */
 
 .footer {
   width: 100%;
@@ -54,6 +66,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #eef0e6;
 }
 
 .footer a {
