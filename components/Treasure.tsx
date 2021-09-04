@@ -14,60 +14,63 @@ export const Treasure = () => {
   }
 
   return (
-    <Box
-      maxW="sm"
-      width={350}
-      borderWidth="1px"
-      borderRadius="lg"
-      overflow="hidden"
-      background={'pink'}
-    >
-      <Image
-        src={property.imageUrl}
-        alt={property.imageAlt}
-        width={335}
-        margin="auto"
-        display="flex"
-      />
-
-      <Box p="6" width={335}>
-        <Box d="flex" alignItems="baseline">
-          <Badge borderRadius="full" px="2" colorScheme="teal">
-            New
-          </Badge>
-          <Box
-            color="gray.500"
-            fontWeight="semibold"
-            letterSpacing="wide"
-            fontSize="xs"
-            textTransform="uppercase"
-            ml="2"
-          >
-            {property.beds} beds &bull; {property.baths} baths
+    <div className="col-2" style={{ padding: 0 }}>
+      <Box
+        maxW="sm"
+        width={'auto'}
+        borderWidth="1px"
+        borderRadius="5px"
+        overflow="hidden"
+        background={'#273748'}
+        margin="6px"
+        border="1px solid #182541"
+        color="#c1d9f0"
+        boxShadow="0px 0px 7px #ccc"
+      >
+        <Image
+          src={property.imageUrl}
+          alt={property.imageAlt}
+          width={270}
+          margin="auto"
+          display="flex"
+        />
+        <Box p="6" width={335}>
+          <Box d="flex" alignItems="baseline">
+            <Badge borderRadius="full" px="2" colorScheme="teal">
+              New
+            </Badge>
+            <Box
+              color="gray.500"
+              fontWeight="semibold"
+              letterSpacing="wide"
+              fontSize="xs"
+              textTransform="uppercase"
+              ml="2"
+            >
+              {property.beds} beds &bull; {property.baths} baths
+            </Box>
           </Box>
-        </Box>
-
-        <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
-          {property.title}
-        </Box>
-
-        <Box>
-          {property.formattedPrice}
-          <Box as="span" color="gray.600" fontSize="sm">
-            / wk
+          <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+            {property.title}
           </Box>
-        </Box>
-        <Box d="flex" mt="2" alignItems="center">
-          {Array(5)
-            .fill('')
-            .map((_, i) => (
-              <StarIcon key={i} color={i < property.rating ? 'teal.500' : 'gray.300'} />
-            ))}
-          <Box as="span" ml="2" color="gray.600" fontSize="sm">
-            {property.reviewCount} reviews
+          <Box>
+            {property.formattedPrice}
+            <Box as="span" color="gray.600" fontSize="sm">
+              / wk
+            </Box>
+          </Box>
+          <Box d="flex" mt="2" alignItems="center">
+            {Array(5)
+              .fill('')
+              .map((_, i) => (
+                <StarIcon key={i} color={i < property.rating ? 'teal.500' : 'gray.300'} />
+              ))}
+            <Box as="span" ml="2" color="gray.600" fontSize="sm">
+              {property.reviewCount} reviews
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </div>
   )
 }
