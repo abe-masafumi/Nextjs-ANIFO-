@@ -40,7 +40,7 @@ const Home: NextPage = () => {
               <Button
                 title="createボタン"
                 message="作品投稿画面に遷移します"
-                color="white"
+                color="#eef0e6"
                 backColor="#3a526f"
               />
             </a>
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
               <Button
                 title="ウォレットに接続"
                 message="ウォレット接続画面に遷移します"
-                color="white"
+                color="#eef0e6"
                 backColor="#3a526f"
               />
             </a>
