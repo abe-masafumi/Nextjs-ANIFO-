@@ -66,3 +66,4 @@ https://github.com/abe-masafumi/NEXT.JS-Environment2-
 - サブメインカラー #152032
 - テキストカラー #eef0e6
 - シャドウカラー #ccc
+- 透明のカラーコード #0000ffff
