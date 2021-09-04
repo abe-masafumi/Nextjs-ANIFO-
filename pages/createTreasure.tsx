@@ -2,48 +2,48 @@ import Link from 'next/link'
 import styles from '../styles/createTreasure.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Heading } from '@chakra-ui/layout'
+import { MainButton } from '../components/MainButton'
 
 export default function createTreasure() {
   return (
-    <div className="container" style={{ width: 500 }}>
-      <header>{/* ここにindexのheaderを入れる(headerをコンポーネントに？) */}</header>
-      <main className="container w-100">
-        <Link href="/">
-          <a>← go back</a>
-        </Link>
-        <h1>Create collectible</h1>
-        <p>
-          Choose “Single” if you want your collectible to be one of a kind or
-          <br />
-          “Multiple” if you want to sell one collectible multiple times
-        </p>
+    <div style={{background:"#0b1118", color:"#eef0e6"}}>
+      <div className="container-sm vh-100" style={{ width: 600 }}>
+        <header>{/* ここにindexのheaderを入れる(headerをコンポーネントに？) */}</header>
 
-        <div className="row text-center w-100">
-          <div className="col-sm">
-            <Link href="/createSingleTreasure">
-              <a>
-                <div className="border border-primary m-2" style={{ height: 250 }}>
-                  Single
-                </div>
-              </a>
-            </Link>
+        <main className="container w-100">
+          <Link href="/">
+            <a style={{ textDecoration: 'none' }}>← go back</a>
+          </Link>
+          <h1>Create collectible</h1>
+          <p>
+            Choose “Single” if you want your collectible to be one of a kind or
+            <br />
+            “Multiple” if you want to sell one collectible multiple times
+          </p>
+          {/* メインボタンの選択 */}
+          <div className="row text-center w-100">
+            <div className="col-sm">
+              <Link href="/createSingleTreasure">
+                <a className="text-decoration-none">
+                <MainButton width={220} height={250} title={"single"} />
+                </a>
+              </Link>
+            </div>
+            <div style={{ width: 20 }}></div>
+            <div className="col-sm">
+              <Link href="/createSingleTreasure">
+                <a className="text-decoration-none">
+                <MainButton width={220} height={250} title={"Multiple"} />
+                </a>
+              </Link>
+            </div>
           </div>
-          <div style={{ width: 20 }}></div>
-          <div className="col-sm">
-            <Link href="/createSingleTreasure">
-              <a>
-                <div className="border border-primary m-2" style={{ height: 250 }}>
-                  Multiple
-                </div>
-              </a>
-            </Link>
-          </div>
-        </div>
-        <p>
-          We do not own your private keys and cannot access your funds
-          <br /> without your confirmation
-        </p>
-      </main>
+          <p>
+            We do not own your private keys and cannot access your funds
+            <br /> without your confirmation
+          </p>
+        </main>
+      </div>
     </div>
   )
 }
