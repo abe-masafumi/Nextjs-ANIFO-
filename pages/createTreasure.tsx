@@ -3,12 +3,14 @@ import styles from '../styles/createTreasure.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Heading } from '@chakra-ui/layout'
 import { MainButton } from '../components/MainButton'
+import {Header} from '../components/Header'
+
 
 export default function createTreasure() {
   return (
     <div style={{background:"#0b1118", color:"#eef0e6"}}>
+      <Header />
       <div className="container-sm vh-100" style={{ width: 600 }}>
-        <header>{/* ここにindexのheaderを入れる(headerをコンポーネントに？) */}</header>
 
         <main className="container w-100">
           <Link href="/">
