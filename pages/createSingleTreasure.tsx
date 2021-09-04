@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button } from '../components/Button'
 import {Header} from '../components/Header'
 import {MainButton} from '../components/MainButton'
+import {Footer} from '../components/Footer'
 
 
 export default function createSingleTreasure() {
@@ -11,7 +12,7 @@ export default function createSingleTreasure() {
   return (
     <div style={{ background: '#0b1118', color:"#eef0e6"}}>
       <Header />
-      <div className="container">
+      <div className="container my-5">
         <div className="row">
           <div className="col-8">
             <Link href="/createTreasure">
@@ -75,12 +76,15 @@ export default function createSingleTreasure() {
             />
           </div>
           {/* プレビュー用スペース */}
-          <div className="col-4" style={{ background: 'gray' }}>
-            <div className="mt-5">プレビュー用スペース</div>
-            <div className="border border-info w-100 rounded" style={{ height: 500 }}></div>
+          <div className="col-4">
+            <div className="position-fixed">
+              <div className="mt-5">プレビュー用スペース</div>
+              <MainButton width={414} height={500}/>
+            </div>
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

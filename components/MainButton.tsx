@@ -4,7 +4,7 @@ import styles from './MainButton.module.css'
 type TodoType = {
   width: number
   height: number
-  title: string
+  title?: string
 }
 
 export const MainButton = (props: TodoType) => {
