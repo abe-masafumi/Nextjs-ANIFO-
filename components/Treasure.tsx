@@ -23,7 +23,7 @@ export const Treasure = () => {
         overflow="hidden"
         background={'#273748'}
         margin="6px"
-        border="1px solid #182541"
+        border="1px solid #1dbfee"
         color="#c1d9f0"
         boxShadow="0px 0px 7px #ccc"
       >
