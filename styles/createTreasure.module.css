@@ -1,6 +1,7 @@
 .buttonContainer {
   background: orange;
   display: flex;
+  width: 400p;
 }
 
 .multipleButton,
