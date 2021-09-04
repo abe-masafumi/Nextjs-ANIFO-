@@ -59,3 +59,10 @@ https://github.com/abe-masafumi/NEXT.JS-Environment2-
 
 `yarn add @chakra-ui/icons`
 `import { StarIcon } from '@chakra-ui/icons'`
+
+# 使用カラー
+
+- メインカラー #0b1118
+- サブメインカラー #152032
+- テキストカラー #eef0e6
+- シャドウカラー #ccc
