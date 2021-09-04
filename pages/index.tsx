@@ -4,10 +4,9 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-import { Button } from '../components/Button'
+import {Header} from '../components/Header'
+import {Footer} from '../components/Footer'
 import { Treasure } from '../components/Treasure'
-import { Search } from '../components/Search'
 
 const Home: NextPage = () => {
   return (
@@ -19,45 +18,8 @@ const Home: NextPage = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header className={styles.header}>
-        {/* ヘッダーロゴ */}
-        <div className={styles.headerImageBox}>
-          <Image src="/anifo.png" alt="ヘッダーロゴ" width={160} height={50} />
-        </div>
-        {/* ヘッダーメニュー */}
-        <div className={styles.headerMenue}>
-          <Search />
-          <div className={styles.headerExplore}>Explore</div>
-          <div className={styles.headerMyItems}>My items</div>
-          <div className={styles.headerFollowing}>Following</div>
-          <div className={styles.headerActivity}>Activity</div>
-          <div className={styles.headerHowItWorks}>How it works</div>
-          <div className={styles.headerCommunuty}>Communuty</div>
-          {/* ボタンコンポーネント作成 */}
 
-          <Link href="/createTreasure">
-            <a>
-              <Button
-                title="createボタン"
-                message="作品投稿画面に遷移します"
-                color="#eef0e6"
-                backColor="#3a526f"
-              />
-            </a>
-          </Link>
-
-          <Link href="/connectMyWallet">
-            <a>
-              <Button
-                title="ウォレットに接続"
-                message="ウォレット接続画面に遷移します"
-                color="#eef0e6"
-                backColor="#3a526f"
-              />
-            </a>
-          </Link>
-        </div>
-      </header>
+      <Header />
 
       <main className="container-fluid ">
         <div className="row">
@@ -78,19 +40,7 @@ const Home: NextPage = () => {
           <Treasure />
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <Footer/>
     </div>
   )
 }
