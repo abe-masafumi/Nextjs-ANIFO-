@@ -1,20 +1,22 @@
 import styles from './MainButton.module.css'
+import web3 from 'web3'
 
 // // propsの型指定
 type TodoType = {
   width: number
   height: number
-  title: string
+  title?: string
 }
 
 export const MainButton = (props: TodoType) => {
-  const { width, height, title} = props
-
-  // const onclickLink = () => alert(message)
+  const { width, height, title } = props
 
   return (
-    <div className="border border-info m-2" style={{ height: height, width: width, color:"#eef0e6", boxShadow: '0px 0px 6px #ccc' }}>
+    <button
+      className="border border-info m-2 rounded"
+      style={{ height, width, color: '#eef0e6', boxShadow: '0px 0px 6px #ccc' }}
+    >
       <p>{title}</p>
-    </div>
+    </button>
   )
 }

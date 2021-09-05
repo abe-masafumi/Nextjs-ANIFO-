@@ -20,6 +20,9 @@ export default function connectMyWallet() {
           <br />
           or create a new wallet. What is a wallet?
         </p>
+        {/* とりあえずメタマスクだけ */}
+        {/* testネットワークに繋ぐ */}
+        {/* メタマスクをつないでユーザー認証する */}
         <div className="row">
           <div className="col-4">
             <div
