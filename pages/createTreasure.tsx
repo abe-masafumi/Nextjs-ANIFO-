@@ -3,15 +3,13 @@ import styles from '../styles/createTreasure.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Heading } from '@chakra-ui/layout'
 import { MainButton } from '../components/MainButton'
-import {Header} from '../components/Header'
-
+import { Header } from '../components/Header'
 
 export default function createTreasure() {
   return (
-    <div style={{background:"#0b1118", color:"#eef0e6"}}>
+    <div style={{ background: '#0b1118', color: '#eef0e6' }}>
       <Header />
       <div className="container-sm vh-100" style={{ width: 600 }}>
-
         <main className="container w-100">
           <Link href="/">
             <a style={{ textDecoration: 'none' }}>← go back</a>
@@ -27,7 +25,7 @@ export default function createTreasure() {
             <div className="col-sm">
               <Link href="/createSingleTreasure">
                 <a className="text-decoration-none">
-                <MainButton width={220} height={250} title={"single"} />
+                  <MainButton width={220} height={250} title={'single'} />
                 </a>
               </Link>
             </div>
@@ -35,7 +33,7 @@ export default function createTreasure() {
             <div className="col-sm">
               <Link href="/createSingleTreasure">
                 <a className="text-decoration-none">
-                <MainButton width={220} height={250} title={"Multiple"} />
+                  <MainButton width={220} height={250} title={'Multiple'} />
                 </a>
               </Link>
             </div>

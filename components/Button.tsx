@@ -6,7 +6,7 @@ type TodoType = {
   message: string
   color: string
   backColor: string
-  width?:number
+  width?: number
 }
 
 export const Button = (props: TodoType) => {
@@ -19,7 +19,7 @@ export const Button = (props: TodoType) => {
       <button
         onClick={onclickLink}
         className={styles.button}
-        style={{ background: backColor, color ,width}}
+        style={{ background: backColor, color, width }}
       >
         {title}
       </button>

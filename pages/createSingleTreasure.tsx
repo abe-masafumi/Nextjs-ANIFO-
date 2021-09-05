@@ -2,16 +2,14 @@ import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import { Button } from '../components/Button'
-import {Header} from '../components/Header'
-import {MainButton} from '../components/MainButton'
-import {Footer} from '../components/Footer'
-import {H6} from '../components/H6'
-
+import { Header } from '../components/Header'
+import { MainButton } from '../components/MainButton'
+import { Footer } from '../components/Footer'
+import { H6 } from '../components/H6'
 
 export default function createSingleTreasure() {
-
   return (
-    <div style={{ background: '#0b1118', color:"#eef0e6"}}>
+    <div style={{ background: '#0b1118', color: '#eef0e6' }}>
       <Header />
       <div className="container my-5">
         <div className="row">
@@ -29,52 +27,53 @@ export default function createSingleTreasure() {
             {/* 市場に出す */}
             <div>
               <h4>市場に出す</h4>
-              <H6 title={"ユーザーがNFTをすぐに購入できるように価格を入力します"} />
+              <H6 title={'ユーザーがNFTをすぐに購入できるように価格を入力します'} />
               <div className="row" style={{ justifyContent: 'space-between' }}>
-
-              {/* コンポーネントをいろんなところで使いまわしているけど、ここだけonclickイベントを入れたい！それはできるのか？
+                {/* コンポーネントをいろんなところで使いまわしているけど、ここだけonclickイベントを入れたい！それはできるのか？
               コンポーネント側で処理の仕方がわからない
               それかコンポーネントを分けるか */}
-              <MainButton width={250} height={250} title={"1"} />
-              <MainButton width={250} height={250} title={"2"} />
-              <MainButton width={250} height={250} title={"3"} />
-
+                <MainButton width={250} height={250} title={'1'} />
+                <MainButton width={250} height={250} title={'2'} />
+                <MainButton width={250} height={250} title={'3'} />
               </div>
             </div>
             <div style={{ height: 40 }}></div>
             {/* 価格 */}
             <h4>価格</h4>
-            <H6 title={"サービス料2.5％"} />
-            <H6 title={"あなたは0ETHを受け取ります"} />
+            <H6 title={'サービス料2.5％'} />
+            <H6 title={'あなたは0ETHを受け取ります'} />
             {/* 購入したらロックを解除 */}
             <div>
-              <h4>購入したらロックを解除⇦これの意味がわからない</h4>
-            <H6 title={"トランザクションが成功すると、コンテンツのロックが解除されます"} />
-
+              {/* <h4>購入したらロックを解除⇦これの意味がわからない</h4>
+            <H6 title={"トランザクションが成功すると、コンテンツのロックが解除されます"} /> */}
             </div>
             {/* コレクションを選択 */}
             <div>
               <h4>コレクションを選択</h4>
               <div className="row">
-              <MainButton width={250} height={250} title={"1"} />
-              <MainButton width={250} height={250} title={"2"} />
-
+                <MainButton width={250} height={250} title={'1'} />
+                <MainButton width={250} height={250} title={'2'} />
               </div>
             </div>
             {/* 題名 */}
             <h4>題名</h4>
             {/* 説明（オプション） */}
-            <h4>説明<span className="text-white-50" style={{fontSize:16}}>（オプション）</span></h4>
-            <H6 title={"改行が保持されます"} />
+            <h4>
+              説明
+              <span className="text-white-50" style={{ fontSize: 16 }}>
+                （オプション）
+              </span>
+            </h4>
+            <H6 title={'改行が保持されます'} />
 
             {/* 使用料 */}
             <h4>使用料</h4>
-            <H6 title={"推奨：0％、10％、20％、30％。最大は50％です"} />
+            <H6 title={'推奨：0％、10％、20％、30％。最大は50％です'} />
             <Button
-              title={"アイテムを作成する"}
-              message={"アイテムを作成しますか？"}
-              color={"#eef0e6"}
-              backColor={"#3a526f"}
+              title={'アイテムを作成する'}
+              message={'アイテムを作成しますか？'}
+              color={'#eef0e6'}
+              backColor={'#3a526f'}
               width={300}
             />
           </div>
@@ -82,12 +81,12 @@ export default function createSingleTreasure() {
           <div className="col-4">
             <div className="position-fixed">
               <div className="mt-5">プレビュー用スペース</div>
-              <MainButton width={414} height={500}/>
+              <MainButton width={414} height={500} />
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

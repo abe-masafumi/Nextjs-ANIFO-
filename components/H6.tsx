@@ -5,7 +5,7 @@ type TodoType = {
 }
 
 export const H6 = (props: TodoType) => {
-const {title} = props
+  const { title } = props
   return (
     <>
       <h6 className="text-white-50">{title}</h6>
