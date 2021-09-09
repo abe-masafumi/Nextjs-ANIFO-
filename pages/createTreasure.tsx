@@ -1,7 +1,5 @@
 import Link from 'next/link'
-import styles from '../styles/createTreasure.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Heading } from '@chakra-ui/layout'
 import { MainButton } from '../components/MainButton'
 import { Header } from '../components/Header'
 

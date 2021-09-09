@@ -11,7 +11,7 @@ export default function createSingleTreasure() {
   return (
     <div style={{ background: '#0b1118', color: '#eef0e6' }}>
       <Header />
-      <div className="container my-5">
+      <div className="container my-5 h-100">
         <div className="row">
           <div className="col-8">
             <Link href="/createTreasure">

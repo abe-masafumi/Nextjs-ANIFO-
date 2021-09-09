@@ -5,7 +5,7 @@ import fate from '../public/fate.png'
 
 export default function connectMyWallet() {
   return (
-    <div className="vh-100" style={{ background: '#0b1118', color: '#eef0e6' }}>
+    <div className="h-100" style={{ background: '#0b1118', color: '#eef0e6' }}>
       <header style={{ overflow: 'hidden', height: 350 }}>
         {/* ここに大きな画像を入れる */}
         <Image src={fate} alt="fate" className="img-fluid" />
