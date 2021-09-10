@@ -56,10 +56,10 @@ https://github.com/abe-masafumi/NEXT.JS-Environment2-
 > `yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^4` > `import { Box } from "@chakra-ui/react"`
 
 # hacra-ui icon のインストール
-
-`yarn add @chakra-ui/icons`
-`import { StarIcon } from '@chakra-ui/icons'`
-
+```bash
+yarn add @chakra-ui/icons
+import { StarIcon } from '@chakra-ui/icons'
+```
 # 使用カラー
 
 - メインカラー #0b1118
@@ -69,5 +69,12 @@ https://github.com/abe-masafumi/NEXT.JS-Environment2-
 - 透明のカラーコード #0000ffff
 
 # material-ui のインストール
+```bash
+yarn add @material-ui/core
+```
 
-`yarn add @material-ui/core`
+
+# ethersのインストール
+```bash
+yarn add ethers
+```
