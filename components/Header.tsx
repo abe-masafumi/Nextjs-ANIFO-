@@ -3,8 +3,11 @@ import Image from 'next/image'
 import { Search } from '../components/Search'
 import { Button } from '../components/Button'
 import Link from 'next/link'
+import { useContext } from 'react'
+import { AuthContext } from '../pages/context/AuthContext'
 
 export const Header = () => {
+  const auth = useContext(AuthContext)
   return (
     <header className={styles.header}>
       {/* ヘッダーロゴ */}
@@ -32,17 +35,29 @@ export const Header = () => {
             />
           </a>
         </Link>
-
-        <Link href="/connectMyWallet">
-          <a>
-            <Button
-              title="ウォレットに接続"
-              message="ウォレット接続画面に遷移します"
-              color="#eef0e6"
-              backColor="#3a526f"
-            />
-          </a>
-        </Link>
+        {auth?.isAdress ? (
+          <Link href="/">
+            <a>
+              <Button
+                title="あか"
+                message="プロフィール画面に遷移します"
+                color="#eef0e6"
+                backColor="#3a526f"
+              />
+            </a>
+          </Link>
+        ) : (
+          <Link href="/connectMyWallet">
+            <a>
+              <Button
+                title="ウォレットに接続"
+                message="ウォレット接続画面に遷移します"
+                color="#eef0e6"
+                backColor="#3a526f"
+              />
+            </a>
+          </Link>
+        )}
       </div>
     </header>
   )
