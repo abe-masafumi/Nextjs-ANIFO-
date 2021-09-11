@@ -13,7 +13,13 @@ export const MainButton = (props: TodoType) => {
   return (
     <button
       className="border border-info m-2 rounded"
-      style={{ height, width, color: '#eef0e6', boxShadow: '0px 0px 6px #ccc', background: "#0b1118" }}
+      style={{
+        height,
+        width,
+        color: '#eef0e6',
+        boxShadow: '0px 0px 6px #ccc',
+        background: '#0b1118',
+      }}
     >
       <p>{title}</p>
     </button>
