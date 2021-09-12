@@ -57,8 +57,10 @@ https://github.com/abe-masafumi/NEXT.JS-Environment2-
 
 # hacra-ui icon のインストール
 
-`yarn add @chakra-ui/icons`
-`import { StarIcon } from '@chakra-ui/icons'`
+```bash
+yarn add @chakra-ui/icons
+import { StarIcon } from '@chakra-ui/icons'
+```
 
 # 使用カラー
 
@@ -70,4 +72,18 @@ https://github.com/abe-masafumi/NEXT.JS-Environment2-
 
 # material-ui のインストール
 
-`yarn add @material-ui/core`
+```bash
+yarn add @material-ui/core
+```
+
+# ethers のインストール
+
+```bash
+yarn add ethers
+```
+
+# web3 のインストール
+
+```bash
+npm i --save-dev @types/web3
+```
