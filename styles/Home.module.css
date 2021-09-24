@@ -7,44 +7,40 @@
 .container {
   background: #0b1118;
   min-height: 100vh;
-  /* padding: 0 0.5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
 }
+
 /* ------ヘッダーcss------ */
-.header {
+/* .header {
   background: #152032;
   height: 65px;
   width: 100%;
   padding-left: 1rem;
   display: flex;
   align-items: center;
-}
+} */
 
-.headerMenue {
-  /* background: gray; */
+/* .headerMenue {
   display: flex;
   width: 100%;
   justify-content: space-around;
   align-items: center;
   color: #eef0e6;
-}
-.headerMenue div {
+} */
+/* .headerMenue div {
   margin-left: 10px;
-}
-.headerSearch {
-  /* background: black; */
+} */
+/* .headerSearch {
   width: 450px;
-}
+} */
 
-.headerImageBox {
-  /* background: pink; */
+/* .headerImageBox {
   width: 160px;
   height: 50px;
-}
+} */
 /* ------------------------ */
 
 /* .main {
