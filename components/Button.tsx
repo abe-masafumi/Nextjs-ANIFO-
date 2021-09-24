@@ -12,7 +12,7 @@ type TodoType = {
 export const Button = (props: TodoType) => {
   const { title, message, color, backColor, width } = props
 
-  const onclickLink = () => alert(message)
+  const onclickLink = () => console.log(message)
 
   return (
     <div>
