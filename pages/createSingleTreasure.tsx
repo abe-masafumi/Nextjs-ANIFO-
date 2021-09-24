@@ -7,6 +7,7 @@ import { MainButton } from '../components/MainButton'
 import { Footer } from '../components/Footer'
 import { H6 } from '../components/H6'
 import { AuthProvider } from './context/AuthContext'
+import { ButtonImageFile } from '../components/ButtonImageFile'
 
 export default function createSingleTreasure() {
   return (
@@ -23,7 +24,9 @@ export default function createSingleTreasure() {
               {/* ファイルのアップロード */}
               <div>
                 <h4>ファイルをアップロードする</h4>
-                <div className="border border-info w-100 rounded" style={{ height: 300 }}></div>
+                <div className="border border-info w-100 rounded" style={{ height: 300 }}>
+                  <ButtonImageFile />
+                </div>
               </div>
               <div style={{ height: 40 }}></div>
               {/* 市場に出す */}
