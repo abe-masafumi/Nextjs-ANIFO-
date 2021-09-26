@@ -1,6 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Router from 'next/router'
 
+
+
+
+
+
 export const ConnectMetaMaskButton = () => {
   const useWindow = () => {
     return typeof window !== 'undefined'
@@ -10,7 +15,7 @@ export const ConnectMetaMaskButton = () => {
     try {
       if (useWindow()) {
         // これの赤線が気になる！
-        const ethereum:any = window
+        const { ethereum } = window
         const newAccounts = await ethereum.request({ method: 'eth_requestAccounts' })
         Router.push('/')
       }
