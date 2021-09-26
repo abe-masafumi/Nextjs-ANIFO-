@@ -2,7 +2,7 @@ import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { MainButton } from '../components/MainButton'
 import { Header } from '../components/Header'
-import { AuthProvider } from './context/AuthContext'
+import AuthProvider from './AuthContext'
 
 export default function createTreasure() {
   return (

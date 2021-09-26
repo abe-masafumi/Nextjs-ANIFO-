@@ -4,7 +4,7 @@ import { Search } from '../components/Search'
 import { Button } from '../components/Button'
 import Link from 'next/link'
 import { useContext } from 'react'
-import { AuthContext } from '../pages/context/AuthContext'
+import { AuthContext } from '../pages/AuthContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Header = () => {

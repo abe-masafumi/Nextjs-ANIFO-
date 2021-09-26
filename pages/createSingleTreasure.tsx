@@ -6,7 +6,7 @@ import { Header } from '../components/Header'
 import { MainButton } from '../components/MainButton'
 import { Footer } from '../components/Footer'
 import { H6 } from '../components/H6'
-import { AuthProvider } from './context/AuthContext'
+import AuthProvider from './AuthContext'
 import { ButtonImageFile } from '../components/ButtonImageFile'
 
 export default function createSingleTreasure() {

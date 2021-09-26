@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Image from 'next/image'
 import fate from '../public/fate.png'
 import { ConnectMetaMaskButton } from '../components/ConnectMetaMaskButton'
-import { AuthProvider } from './context/AuthContext'
+import AuthProvider from './AuthContext'
 
 export default function connectMyWallet() {
   return (

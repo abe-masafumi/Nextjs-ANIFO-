@@ -9,7 +9,7 @@ type InitialState = {
 }
 
 export const AuthContext = createContext<InitialState | null>(null)
-export const AuthProvider: React.VFC<Props> = ({ children }) => {
+const AuthProvider: React.VFC<Props> = ({ children }) => {
   // アドレスが取得できるかのboolean
   const [isAdress, setIsAdress] = useState(false)
   let isAd
@@ -39,3 +39,4 @@ export const AuthProvider: React.VFC<Props> = ({ children }) => {
 
   return <AuthContext.Provider value={{ isAdress }}>{children}</AuthContext.Provider>
 }
+export default AuthProvider;

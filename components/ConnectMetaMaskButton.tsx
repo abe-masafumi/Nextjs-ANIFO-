@@ -6,11 +6,11 @@ export const ConnectMetaMaskButton = () => {
     return typeof window !== 'undefined'
   }
 
-  const onClickConnect = async () => {
+  const OnClickConnect = async () => {
     try {
       if (useWindow()) {
         // これの赤線が気になる！
-        const { ethereum } = window
+        const ethereum:any = window
         const newAccounts = await ethereum.request({ method: 'eth_requestAccounts' })
         Router.push('/')
       }
@@ -26,7 +26,7 @@ export const ConnectMetaMaskButton = () => {
         <div
           className="border border-info rounded m-1"
           style={{ height: 200, width: 250, boxShadow: '0px 0px 6px #ccc' }}
-          onClick={onClickConnect}
+          onClick={OnClickConnect}
         ></div>
       </div>
     </>

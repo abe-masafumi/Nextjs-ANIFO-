@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Treasure } from '../components/Treasure'
-import { AuthProvider } from './context/AuthContext'
+import AuthProvider from './AuthContext'
 
 const Home: NextPage = () => {
   return (
