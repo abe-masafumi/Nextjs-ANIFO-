@@ -14,6 +14,18 @@ export default function createSingleTreasure() {
     <AuthProvider>
       <div style={{ background: '#0b1118', color: '#eef0e6' }}>
         <Header />
+        <form
+          action="http://localhost/myfile_lab05/%20NFTMetaData/"
+          method="POST"
+          encType="multipart/form-data"
+        >
+          <input type="file" name="file" accept="image/*" />
+          <input type="text" name="title" />
+          <input type="text" name="discription" />
+          <input type="text" name="plice" />
+          <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
+          <button type="submit"></button>
+        </form>
         <div className="container my-5 h-100">
           <div className="row">
             <div className="col-8">
