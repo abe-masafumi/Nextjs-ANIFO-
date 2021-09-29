@@ -5,7 +5,7 @@ import NFTcontractABI from '../contractABI'
 let web3js;
 
 function startApp() {
-  let NFTcontractAddress = '0x116ceb7b0af67ce7eb006697f2a6864cbb7858c3'
+  let NFTcontractAddress = '0x8E85dAa187F2860F9d9dccA0dBBe30B4db487Ac6'
   const cryptoZombies = new web3js.eth.Contract(NFTcontractABI, NFTcontractAddress)
   console.log(cryptoZombies)
 }
@@ -28,28 +28,28 @@ const AuthProvider = ({ children }) => {
 
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
 
-  // ページを読み込んで最初の１回だけ初期値のfalseが入るからそれの防止
-  // useEffect(() => {
-  //   if (typeof window !== 'undefined') {
-  //     const { ethereum }  = window
-  //     ethereum?.selectedAddress && true ? (isAd = true) : (isAd = false)
-  //     setIsAdress(isAd)
-  //   }
-  // }, [])
+  ページを読み込んで最初の１回だけ初期値のfalseが入るからそれの防止
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const { ethereum }  = window
+      ethereum?.selectedAddress && true ? (isAd = true) : (isAd = false)
+      setIsAdress(isAd)
+    }
+  }, [])
 
-  // useEffect(() => {
-  //   // 一定時間でメタマスクとの通信確認
-  //   const connecting = setInterval(() => {
-  //     const { ethereum } = window
-  //     ethereum?.selectedAddress && true ? (isAd = true) : (isAd = false)
-  //     setIsAdress(isAd)
-  //     console.log(isAdress)
-  //   }, 1000)
-  //   return () => {
-  //     clearInterval(connecting)
-  //     console.log('アンマウント')
-  //   }
-  // }, [isAdress])
+  useEffect(() => {
+    // 一定時間でメタマスクとの通信確認
+    const connecting = setInterval(() => {
+      const { ethereum } = window
+      ethereum?.selectedAddress && true ? (isAd = true) : (isAd = false)
+      setIsAdress(isAd)
+      console.log(isAdress)
+    }, 1000)
+    return () => {
+      clearInterval(connecting)
+      console.log('アンマウント')
+    }
+  }, [isAdress])
 
   return <AuthContext.Provider value={{ isAdress }}>{children}</AuthContext.Provider>
 }
