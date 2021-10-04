@@ -8,23 +8,46 @@ import { Footer } from '../components/Footer'
 import { H6 } from '../components/H6'
 import AuthProvider from './AuthContext'
 import { ButtonImageFile } from '../components/ButtonImageFile'
+import { useEffect } from 'react'
+import { AuthContext } from './AuthContext'
 
 export default function createSingleTreasure() {
+  const handleSubmit = async (e) => {
+    const { ethereum }  = window
+    if(confirm('送信しますか？')) {
+      if(!ethereum?.selectedAddress) {
+       alert('ウォレットに接続してください')
+      e.preventDefault();
+      }
+    }else {
+      alert('送信をていしします')
+      e.preventDefault();
+    }
+  }
+  
+
+
+    // フォーム送信時のユニークidを生成:16329763806285
+    const uniqueNumber = new Date().getTime().toString() + Math.floor(Math.random() * 10).toString()
+    console.log(uniqueNumber)
   return (
     <AuthProvider>
       <div style={{ background: '#0b1118', color: '#eef0e6' }}>
         <Header />
         <form
+          onSubmit={handleSubmit}
           action="http://localhost/myfile_lab05/%20NFTMetaData/"
           method="POST"
           encType="multipart/form-data"
         >
-          <input type="file" name="file" accept="image/*" />
+          <input type="file" id="avatar" name="file" accept="image/*" />
           <input type="text" name="title" />
           <input type="text" name="discription" />
           <input type="text" name="plice" />
           <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
-          <button type="submit"></button>
+          <input type="hidden" name="uniqueNumber" value={uniqueNumber} />
+          <input type="hidden" name="uniqueNumber" value={uniqueNumber} />
+          <input type="submit" id="send_mixdata" />
         </form>
         <div className="container my-5 h-100">
           <div className="row">
