@@ -1,7 +1,7 @@
 // グローバル変数ページ
 import { createContext, useEffect, useState } from 'react'
 
-
+// Web3がブラウザにインジェクトされているかチェック (Mist/MetaMask)
 export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
   // アドレスが取得できるかのboolean
@@ -33,4 +33,4 @@ const AuthProvider = ({ children }) => {
 
   return <AuthContext.Provider value={{ isAdress }}>{children}</AuthContext.Provider>
 }
-export default AuthProvider;
+export default AuthProvider
