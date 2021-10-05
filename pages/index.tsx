@@ -6,8 +6,30 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Treasure } from '../components/Treasure'
 import AuthProvider from './AuthContext'
+import { useEffect } from 'react'
 
-const Home: NextPage = () => {
+import { GetServerSideProps } from 'next'
+import { InferGetServerSidePropsType } from 'next'
+import { Treasures } from '../components/Treasures'
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/metamon.php`)
+  
+  const data = await res.json()
+  console.log(data);
+  
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  }
+}
+
+const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <AuthProvider>
       <div className={styles.container}>
@@ -23,6 +45,7 @@ const Home: NextPage = () => {
 
         <main className="container-fluid ">
           <div className="row">
+            <Treasures data={data} />
             <Treasure />
             <Treasure />
             <Treasure />
