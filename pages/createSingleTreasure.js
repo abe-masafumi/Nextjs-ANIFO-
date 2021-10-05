@@ -8,6 +8,8 @@ import { Footer } from '../components/Footer'
 import { H6 } from '../components/H6'
 import AuthProvider from './AuthContext'
 import { ButtonImageFile } from '../components/ButtonImageFile'
+import { useEffect } from 'react'
+
 
 export default function createSingleTreasure() {
   const handleSubmit = async (e) => {
@@ -31,6 +33,16 @@ export default function createSingleTreasure() {
     input.setAttribute('value', address);
     myform.appendChild(input);
   }
+
+  useEffect(() => {
+    var params = (new URL(document.location)).searchParams;
+    const paramsUrl = params.get('url');
+    console.log(paramsUrl);
+    if (paramsUrl) {
+      // ミント作業
+      // mintNFT(paramsUrl);
+    }
+  })
 
   return (
     <AuthProvider>
