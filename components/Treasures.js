@@ -1,5 +1,7 @@
 import { Box, Badge, Image } from '@chakra-ui/react'
 import { StarIcon } from '@chakra-ui/icons'
+import Link from 'next/link'
+
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 // type TodoType = {
@@ -44,15 +46,19 @@ export const Treasures = (props) => {
                         boxShadow="0px 0px 7px #ccc"
                         // verflow-wrap="break-all"
                       >
-                        <Image
-                          src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${item.uniqueNumber}${item.image}`}
-                          alt='Rear view of modern home with pool'
-                          width="100%"
-                          height="190px"
-                          margin="auto"
-                          display="flex"
-                          objectFit="container"
-                        />
+                        <Link href="/thisTreasue">
+                          <a>
+                            <Image
+                              src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${item.uniqueNumber}${item.image}`}
+                              alt='Rear view of modern home with pool'
+                              width="100%"
+                              height="190px"
+                              margin="auto"
+                              display="flex"
+                              objectFit="container"
+                            />
+                          </a>
+                        </Link>
                         <Box p="6" width={335}>
                           <Box d="flex" alignItems="baseline">
                             <Badge borderRadius="full" px="2" colorScheme="teal">
@@ -96,7 +102,5 @@ export const Treasures = (props) => {
               }
             </div>
           </div>
-    
-
   );
 };
