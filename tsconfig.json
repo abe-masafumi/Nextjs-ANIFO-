@@ -15,6 +15,6 @@
     "jsx": "preserve"
     // "strict": false
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/AuthContext.js", "components/ConnectMetaMaskButton.js", "components/Header.js", "pages/createSingleTreasure.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/AuthContext.js", "components/ConnectMetaMaskButton.js", "components/Header.js", "pages/createSingleTreasure.js", "components/Treasures.js"],
   "exclude": ["node_modules"]
 }

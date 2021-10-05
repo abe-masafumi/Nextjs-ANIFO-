@@ -19,10 +19,11 @@ export default function createSingleTreasure() {
        alert('ウォレットに接続してください')
       e.preventDefault();
       }
-    }else {
+    } else {
       alert('送信をていしします')
       e.preventDefault();
     }
+    // inputhiddenにアドレスを追加したい
   }
   
 
@@ -46,7 +47,7 @@ export default function createSingleTreasure() {
           <input type="text" name="plice" />
           <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
           <input type="hidden" name="uniqueNumber" value={uniqueNumber} />
-          <input type="hidden" name="uniqueNumber" value={uniqueNumber} />
+          {/* <input type="hidden" name="uniqueNumber" value={uniqueNumber} /> */}
           <input type="submit" id="send_mixdata" />
         </form>
         <div className="container my-5 h-100">
