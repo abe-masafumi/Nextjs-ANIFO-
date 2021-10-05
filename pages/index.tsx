@@ -43,9 +43,11 @@ const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSi
 
         <Header />
 
-        <main className="container-fluid ">
-          <div className="row">
+        <main >
+          <div >
             <Treasures data={data} />
+            {/* <Treasure /> */}
+            {/* <Treasure />
             <Treasure />
             <Treasure />
             <Treasure />
@@ -58,9 +60,7 @@ const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSi
             <Treasure />
             <Treasure />
             <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
+            <Treasure /> */}
           </div>
         </main>
         <Footer />
