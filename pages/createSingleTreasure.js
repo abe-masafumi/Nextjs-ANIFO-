@@ -10,43 +10,42 @@ import AuthProvider from './AuthContext'
 import { ButtonImageFile } from '../components/ButtonImageFile'
 import { useEffect } from 'react'
 
-
-export default function createSingleTreasure() {
+export default function CreateSingleTreasure() {
   const handleSubmit = async (e) => {
-    const { ethereum }  = window
-    if(confirm('送信しますか？')) {
-      if(!ethereum?.selectedAddress) {
-       alert('ウォレットに接続してください')
-      e.preventDefault();
+    const { ethereum } = window
+    if (confirm('送信しますか？')) {
+      if (!ethereum?.selectedAddress) {
+        alert('ウォレットに接続してください')
+        e.preventDefault()
       }
     } else {
       alert('送信をていしします')
-      e.preventDefault();
+      e.preventDefault()
     }
     // submit後にアドレスを取得してformに追加
     const myform = document.getElementById('myform')
-    const address = ethereum?.selectedAddress;
-    console.log(`🏦 Meta Maskのアドレスをinput hidden に追加 --> ${address}`);
-    const input = document.createElement('input');
-    input.setAttribute('type', 'hidden');
-    input.setAttribute('name', 'address');
-    input.setAttribute('value', address);
-    myform.appendChild(input);
+    const address = ethereum?.selectedAddress
+    console.log(`🏦 Meta Maskのアドレスをinput hidden に追加 --> ${address}`)
+    const input = document.createElement('input')
+    input.setAttribute('type', 'hidden')
+    input.setAttribute('name', 'address')
+    input.setAttribute('value', address)
+    myform.appendChild(input)
   }
 
   useEffect(() => {
-    var params = (new URL(document.location)).searchParams;
+    const params = new URL(document.location).searchParams
     if (params.get('url')) {
-      console.log(`👍phpにMetaDataが作成されました`);
+      console.log(`👍phpにMetaDataが作成されました`)
       const paramsUrl = params.get('url')
-      console.log(`〠i get paramasUrl-->  ${paramsUrl}`);
+      console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
       // -----ミント作業-----
       // mintNFT(paramsUrl);
 
       // ----ミント作業--end----
-      console.log(`💚💚💚 mint完了 💚💚💚`);
-    };
-  },[])
+      console.log(`💚💚💚 mint完了 💚💚💚`)
+    }
+  }, [])
 
   return (
     <AuthProvider>
