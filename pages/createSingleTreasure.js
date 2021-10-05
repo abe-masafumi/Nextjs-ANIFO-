@@ -26,7 +26,7 @@ export default function createSingleTreasure() {
     // submit後にアドレスを取得してformに追加
     const myform = document.getElementById('myform')
     const address = ethereum?.selectedAddress;
-    console.log(address);
+    console.log(`🏦 Meta Maskのアドレスをinput hidden に追加 --> ${address}`);
     const input = document.createElement('input');
     input.setAttribute('type', 'hidden');
     input.setAttribute('name', 'address');
@@ -36,13 +36,17 @@ export default function createSingleTreasure() {
 
   useEffect(() => {
     var params = (new URL(document.location)).searchParams;
-    const paramsUrl = params.get('url');
-    console.log(paramsUrl);
-    if (paramsUrl) {
-      // ミント作業
+    if (params.get('url')) {
+      console.log(`👍phpにMetaDataが作成されました`);
+      const paramsUrl = params.get('url')
+      console.log(`〠i get paramasUrl-->  ${paramsUrl}`);
+      // -----ミント作業-----
       // mintNFT(paramsUrl);
-    }
-  })
+
+      // ----ミント作業--end----
+      console.log(`💚💚💚 mint完了 💚💚💚`);
+    };
+  },[])
 
   return (
     <AuthProvider>

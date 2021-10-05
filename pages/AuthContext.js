@@ -23,11 +23,11 @@ const AuthProvider = ({ children }) => {
       const { ethereum } = window
       ethereum?.selectedAddress && true ? (isAd = true) : (isAd = false)
       setIsAdress(isAd)
-      console.log(isAdress)
+      console.log(`🆔ウォレット接続状態 -->${isAdress}`)
     }, 1000)
     return () => {
       clearInterval(connecting)
-      console.log('アンマウント')
+      console.log('💔💔💔アンマウント💔💔💔')
     }
   }, [isAdress])
 
