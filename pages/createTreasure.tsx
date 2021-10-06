@@ -23,7 +23,7 @@ export default function createTreasure() {
             {/* メインボタンの選択 */}
             <div className="row text-center w-100">
               <div className="col-sm">
-                <Link href="/CreateSingleTreasure">
+                <Link href="/createSingleTreasure">
                   <a className="text-decoration-none">
                     <MainButton width={220} height={250} title={'single'} />
                   </a>
@@ -31,7 +31,7 @@ export default function createTreasure() {
               </div>
               <div style={{ width: 20 }}></div>
               <div className="col-sm">
-                <Link href="/CreateSingleTreasure">
+                <Link href="/createSingleTreasure">
                   <a className="text-decoration-none">
                     <MainButton width={220} height={250} title={'Multiple'} />
                   </a>
