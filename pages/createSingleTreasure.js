@@ -54,7 +54,7 @@ export default function CreateSingleTreasure() {
         <form
           id="myform"
           onSubmit={handleSubmit}
-          action="http://localhost/myfile_lab05/%20NFTMetaData/"
+          action="https://loving-kusu-4281.lolipop.io/"
           method="POST"
           encType="multipart/form-data"
         >
