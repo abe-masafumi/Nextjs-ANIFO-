@@ -9,32 +9,50 @@ import { H6 } from '../components/H6'
 import AuthProvider from './AuthContext'
 import { ButtonImageFile } from '../components/ButtonImageFile'
 import { useEffect } from 'react'
-import { AuthContext } from './AuthContext'
 
-export default function createSingleTreasure() {
+export default function CreateSingleTreasure() {
   const handleSubmit = async (e) => {
-    const { ethereum }  = window
-    if(confirm('送信しますか？')) {
-      if(!ethereum?.selectedAddress) {
-       alert('ウォレットに接続してください')
-      e.preventDefault();
+    const { ethereum } = window
+    if (confirm('送信しますか？')) {
+      if (!ethereum?.selectedAddress) {
+        alert('ウォレットに接続してください')
+        e.preventDefault()
       }
-    }else {
+    } else {
       alert('送信をていしします')
-      e.preventDefault();
+      e.preventDefault()
     }
+    // submit後にアドレスを取得してformに追加
+    const myform = document.getElementById('myform')
+    const address = ethereum?.selectedAddress
+    console.log(`🏦 Meta Maskのアドレスをinput hidden に追加 --> ${address}`)
+    const input = document.createElement('input')
+    input.setAttribute('type', 'hidden')
+    input.setAttribute('name', 'address')
+    input.setAttribute('value', address)
+    myform.appendChild(input)
   }
-  
 
+  useEffect(() => {
+    const params = new URL(document.location).searchParams
+    if (params.get('url')) {
+      console.log(`👍phpにMetaDataが作成されました`)
+      const paramsUrl = params.get('url')
+      console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
+      // -----ミント作業-----
+      // mintNFT(paramsUrl);
 
-    // フォーム送信時のユニークidを生成:16329763806285
-    const uniqueNumber = new Date().getTime().toString() + Math.floor(Math.random() * 10).toString()
-    console.log(uniqueNumber)
+      // ----ミント作業--end----
+      console.log(`💚💚💚 mint完了 💚💚💚`)
+    }
+  }, [])
+
   return (
     <AuthProvider>
       <div style={{ background: '#0b1118', color: '#eef0e6' }}>
         <Header />
         <form
+          id="myform"
           onSubmit={handleSubmit}
           action="http://localhost/myfile_lab05/%20NFTMetaData/"
           method="POST"
@@ -45,8 +63,6 @@ export default function createSingleTreasure() {
           <input type="text" name="discription" />
           <input type="text" name="plice" />
           <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
-          <input type="hidden" name="uniqueNumber" value={uniqueNumber} />
-          <input type="hidden" name="uniqueNumber" value={uniqueNumber} />
           <input type="submit" id="send_mixdata" />
         </form>
         <div className="container my-5 h-100">
@@ -69,9 +85,7 @@ export default function createSingleTreasure() {
                 <h4>市場に出す</h4>
                 <H6 title={'ユーザーがNFTをすぐに購入できるように価格を入力します'} />
                 <div className="row" style={{ justifyContent: 'space-between' }}>
-                  {/* コンポーネントをいろんなところで使いまわしているけど、ここだけonclickイベントを入れたい！それはできるのか？
-              コンポーネント側で処理の仕方がわからない
-              それかコンポーネントを分けるか */}
+                  {/* コンポーネントをいろんなところで使いまわしているけど、ここだけonclickイベントを入れたい！それはできるのか？コンポーネント側で処理の仕方がわからない。それかコンポーネントを分けるか */}
                   <MainButton width={250} height={250} title={'1'} />
                   <MainButton width={250} height={250} title={'2'} />
                   <MainButton width={250} height={250} title={'3'} />
