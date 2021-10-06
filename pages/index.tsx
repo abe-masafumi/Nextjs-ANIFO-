@@ -6,7 +6,6 @@ import { Header } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { Treasure } from '../components/Treasure'
 import AuthProvider from './AuthContext'
-import { useEffect } from 'react'
 
 import { GetServerSideProps } from 'next'
 import { InferGetServerSidePropsType } from 'next'
