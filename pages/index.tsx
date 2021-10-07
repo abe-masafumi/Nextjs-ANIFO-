@@ -13,9 +13,8 @@ import { Treasures } from '../components/Treasures'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   // 作品一覧の読み込み場所
-  // 本番環境 （＾ω＾）
+  // 🤗🤗デプロイ時変更🤗🤗
   // const res = await fetch(`https://loving-kusu-4281.lolipop.io/metamon.php`)
-  // ローカル環境 )^o^()
   const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/metamon.php`)
   
   const data = await res.json()

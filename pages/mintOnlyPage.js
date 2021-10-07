@@ -67,6 +67,7 @@ useEffect(() => {
     const paramsUrl = params.get('url')
     console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
     // -----ミント作業-----
+    // 🤗🤗デプロイ時変更🤗🤗
     // mintNFT(paramsUrl);
 
     // ----ミント作業--end----

@@ -87,3 +87,11 @@ yarn add ethers
 ```bash
 npm i --save-dev @types/web3
 ```
+
+# デプロイ時の変更箇所
+```
+index.tsx
+thisTreasue.js
+mintOnlyPage.js
+createSingleTreasure.js
+```
