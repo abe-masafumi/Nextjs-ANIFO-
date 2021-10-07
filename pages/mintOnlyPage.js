@@ -1,6 +1,5 @@
-// import fs from 'fs'
-
 import { useEffect } from "react"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const getStaticProps = async (context) => {
   require("dotenv").config()
@@ -68,16 +67,18 @@ useEffect(() => {
     const paramsUrl = params.get('url')
     console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
     // -----ミント作業-----
-    mintNFT(paramsUrl);
+    // mintNFT(paramsUrl);
 
     // ----ミント作業--end----
     console.log(`💚💚💚 mint完了 💚💚💚`)
-
+    window.location.href = '/';
   }
 }, [])
 
 return  (
-    <div>aaaa</div>
+    <div className="d-flex align-items-center justify-content-center vh-100" style={{background:"#0b1118"}}>
+      <div className="h1" style={{color:"#eef0e6", textShadow:"0px 0px 20px #008282"}}>NFTを発行中発行しています</div>
+    </div>
   );
 }
 export default Home
