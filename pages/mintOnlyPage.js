@@ -72,12 +72,12 @@ useEffect(() => {
 
     // ----ミント作業--end----
     console.log(`💚💚💚 mint完了 💚💚💚`)
-    
+
   }
 }, [])
 
 return  (
-    <div>aaa</div>
+    <div>aaaa</div>
   );
 }
 export default Home
