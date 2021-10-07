@@ -20,7 +20,7 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
 const { createAlchemyWeb3 } = require("@alch/alchemy-web3")
 const web3 = createAlchemyWeb3(API_URL)
 
-const contract = require("../contracts/artifacts/contracts/MyNFT.sol/MyNFT.json")
+const contract = require("../nftcontractabi.json")
 const contractAddress = "0x8E85dAa187F2860F9d9dccA0dBBe30B4db487Ac6"
 const nftContract = new web3.eth.Contract(contract.abi, contractAddress)
 
