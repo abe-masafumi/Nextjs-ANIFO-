@@ -49,20 +49,6 @@ const Home: NextPage = ({ data }: InferGetServerSidePropsType<typeof getServerSi
           <div >
             <Treasures data={data} />
             {/* <Treasure /> */}
-            {/* <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure />
-            <Treasure /> */}
           </div>
         </main>
         <Footer />
