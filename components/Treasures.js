@@ -46,10 +46,12 @@ export const Treasures = (props) => {
                         boxShadow="0px 0px 7px #ccc"
                         // verflow-wrap="break-all"
                       >
-                        <Link href="/thisTreasue">
+                        <Link href={{ pathname: '/thisTreasue' , query: { name: item.uniqueNumber }}}>
                           <a>
                             <Image
-                              src={`https://loving-kusu-4281.lolipop.io/image/${item.uniqueNumber}${item.image}`}
+                              // 🤗🤗デプロイ時変更🤗🤗
+                              // src={`https://loving-kusu-4281.lolipop.io/image/${item.uniqueNumber}${item.image}`}
+                              src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${item.uniqueNumber}${item.image}`}
                               alt='Rear view of modern home with pool'
                               width="100%"
                               height="190px"

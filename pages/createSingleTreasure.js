@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css'
-
 import { Button } from '../components/Button'
 import { Header } from '../components/Header'
 import { MainButton } from '../components/MainButton'
@@ -8,7 +7,6 @@ import { Footer } from '../components/Footer'
 import { H6 } from '../components/H6'
 import AuthProvider from './AuthContext'
 import { ButtonImageFile } from '../components/ButtonImageFile'
-import { useEffect } from 'react'
 
 export default function CreateSingleTreasure() {
   const handleSubmit = async (e) => {
@@ -33,20 +31,6 @@ export default function CreateSingleTreasure() {
     myform.appendChild(input)
   }
 
-  useEffect(() => {
-    const params = new URL(document.location).searchParams
-    if (params.get('url')) {
-      console.log(`👍phpにMetaDataが作成されました`)
-      const paramsUrl = params.get('url')
-      console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
-      // -----ミント作業-----
-      // mintNFT(paramsUrl);
-
-      // ----ミント作業--end----
-      console.log(`💚💚💚 mint完了 💚💚💚`)
-    }
-  }, [])
-
   return (
     <AuthProvider>
       <div style={{ background: '#0b1118', color: '#eef0e6' }}>
@@ -54,7 +38,9 @@ export default function CreateSingleTreasure() {
         <form
           id="myform"
           onSubmit={handleSubmit}
-          action="https://loving-kusu-4281.lolipop.io/"
+          // ローカルと本番用で切り替えてね🤗🤗🤗
+          action="http://localhost/myfile_lab05/%20NFTMetaData/"
+          // action="https://loving-kusu-4281.lolipop.io/"
           method="POST"
           encType="multipart/form-data"
         >

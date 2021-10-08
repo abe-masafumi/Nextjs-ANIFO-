@@ -27,14 +27,43 @@ export const Header = () => {
             <div className="col-3">
               <Search />
             </div>
-            <div className="col-1">Explore</div>
-            <div className="col-1">My items</div>
-            <div className="col-1">Following</div>
-            <div className="col-1">Activity</div>
-            <div className="col-1">How it works</div>
-            <div className="col-2">Communuty</div>
+            <div className="col-1 text-center">
+              <Link href="/">
+                <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
+                  Explore
+                </a>
+              </Link>
+            </div>
+            <div className="col-1 text-center">
+              <Link href="/">
+                <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
+                  Following
+                </a>
+              </Link>
+            </div>
+            <div className="col-1 text-center">
+              <Link href="/">
+                <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
+                  Activity
+                </a>
+              </Link>
+            </div>
+            <div className="col-1 text-center">
+              <Link href="/">
+                <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
+                  How it works
+                </a>
+              </Link>
+            </div>
+            <div className="col-1 text-center">
+              <Link href="/">
+                <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
+                  Communuty
+                </a>
+              </Link>
+            </div>
             {/* ボタンコンポーネント作成 */}
-            <div className="col-2 ">
+            <div className="col-4 ">
               <div style={{ display: 'flex', paddingRight: 'auto', justifyContent: 'end' }}>
                 <div style={{ paddingRight: '14px' }}>
                   <Link href="/createTreasure">
