@@ -90,8 +90,9 @@ npm i --save-dev @types/web3
 
 # デプロイ時の変更箇所
 ```
-index.tsx  X1
-thisTreasue.js  X2
-mintOnlyPage.js
-createSingleTreasure.js
+index.tsx X1
+thisTreasue.js X2
+mintOnlyPage.js X1
+createSingleTreasure.js X1
+
 ```
