@@ -8,8 +8,9 @@ export const getServerSideProps = async (context) => {
   const keyword = context.query.name
   console.log(`☀️☀️queryが取得できました--> ${keyword}`)
   // ローカルと本番用で切り替えてね🤗🤗🤗
-  // const res = await fetch(`https://loving-kusu-4281.lolipop.io/thisTresure.php`)
-  const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/thisTresure.php`, {
+  const res = await fetch(`https://loving-kusu-4281.lolipop.io/thisTresure.php`,
+  // const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/thisTresure.php`, 
+  {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -60,9 +61,9 @@ export default function thisTreasue({ data }) {
             <div className="col-8 vh-100 d-flex align-items-center justify-content-center">
               <div>
                 {/* 🤗🤗デプロイ時変更🤗🤗 */}
-                {/* <img src={`https://loving-kusu-4281.lolipop.io/image/${data["uniqid"]}${data["image"]}`} /> */}
+                <img src={`https://loving-kusu-4281.lolipop.io/image/${data["uniqid"]}${data["image"]}`} />
                 <img
-                  src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${data['uniqid']}${data['image']}`}
+                  // src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${data['uniqid']}${data['image']}`}
                 />
               </div>
             </div>

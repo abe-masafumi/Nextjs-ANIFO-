@@ -90,7 +90,6 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
       mintNFT(paramsUrl)
 
       // ----ミント作業--end----
-      // window.location.href = '/';
     }
   }, [])
 
