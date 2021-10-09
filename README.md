@@ -94,4 +94,5 @@ index.tsx X1
 thisTreasue.js X2
 mintOnlyPage.js X1
 createSingleTreasure.js X1
+Treasures.js X1
 ```

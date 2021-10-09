@@ -7,7 +7,15 @@ import { useContext } from 'react'
 import { AuthContext } from '../pages/AuthContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+
+
 export const Header = () => {
+  let address;
+  if (typeof window !== 'undefined') {
+    const { ethereum } = window
+    console.log(ethereum?.selectedAddress)
+    address = ethereum?.selectedAddress
+  }
   const auth = useContext(AuthContext)
   return (
     <header
@@ -79,7 +87,7 @@ export const Header = () => {
                 </div>
                 {auth?.isAdress ? (
                   <div className="">
-                    <Link href="/">
+                    <Link href={{ pathname: '/mypage' , query: { address:address }}}>
                       <a>
                         <Button
                           title="マイページ"
