@@ -10,13 +10,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 export const Header = () => {
-  let address;
-  if (typeof window !== 'undefined') {
-    const { ethereum } = window
-    console.log(ethereum?.selectedAddress)
-    address = ethereum?.selectedAddress
-  }
+
   const auth = useContext(AuthContext)
+  // console.log(auth);
   return (
     <header
       className="container-fluid p-2 mb-3"
@@ -87,7 +83,7 @@ export const Header = () => {
                 </div>
                 {auth?.isAdress ? (
                   <div className="">
-                    <Link href={{ pathname: '/mypage' , query: { address:address }}}>
+                    <Link href={{ pathname: '/mypage' , query: { address: auth?.address }}}>
                       <a>
                         <Button
                           title="マイページ"
