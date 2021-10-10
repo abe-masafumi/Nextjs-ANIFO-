@@ -81,7 +81,7 @@ export const Header = () => {
                 </div>
                 {auth?.isAdress ? (
                   <div className="">
-                    <Link href={{ pathname: '/mypage' , query: { address: auth?.address }}}>
+                    <Link href={{ pathname: '/mypage' , query: { address: auth.address }}}>
                       <a>
                         <Button
                           title="マイページ"

@@ -47,10 +47,11 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
       from: PUBLIC_KEY,
       to: contractAddress,
       nonce: nonce,
-      gas: 500000,
+      gas: 53520,
+      value: "100",
       data: nftContract.methods.mintNFT(PUBLIC_KEY, tokenURI).encodeABI(),
     }
-
+    
     const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
     signPromise
       .then((signedTx) => {

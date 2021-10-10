@@ -6,7 +6,7 @@ export const AuthContext = createContext(null)
 const AuthProvider = ({ children }) => {
   // アドレスが取得できるかのboolean
   const [isAdress, setIsAdress] = useState(false)
-  const [adress, setAdress] = useState("");
+  const [address, setAdress] = useState("");
   let isAd
 
   // ページを読み込んで最初の１回だけ初期値のfalseが入るからそれの防止
@@ -26,14 +26,15 @@ const AuthProvider = ({ children }) => {
       ethereum?.selectedAddress && true ? (isAd = true) : (isAd = false)
       setIsAdress(isAd)
       setAdress(ethereum?.selectedAddress)
-      console.log(`🆔ウォレット接続状態 -->${isAdress} ログインアドレス-->${adress}`)
+      console.log(`🆔ウォレット接続状態 -->${isAdress} ログインアドレス-->${address}`)
     }, 1000)
     return () => {
       clearInterval(connecting)
       console.log('💔💔💔アンマウント💔💔💔')
     }
-  }, [isAdress,adress])
+  }, [isAdress,address])
 
-  return <AuthContext.Provider value={{ isAdress,adress }}>{children}</AuthContext.Provider>
+  return <AuthContext.Provider value={{ isAdress,address }}>{children}</AuthContext.Provider>
 }
+
 export default AuthProvider

@@ -7,8 +7,8 @@ export const getServerSideProps = async (context) => {
   const keyword = context.query.address
   console.log(`☀️☀️queryが取得できました--> ${keyword}`)
   // ローカルと本番用で切り替えてね🤗🤗🤗
-  // const res = await fetch(`https://loving-kusu-4281.lolipop.io/mypage.php`,
-  const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/mypage.php`, {
+  const res = await fetch(`https://loving-kusu-4281.lolipop.io/mypage.php`,
+  // const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/mypage.php`, {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -56,8 +56,8 @@ export default function mypage({ data }) {
                     <a>
                       <Image
                         // 🤗🤗デプロイ時変更🤗🤗
-                        // src={`https://loving-kusu-4281.lolipop.io/image/${item.uniqueNumber}${item.image}`}
-                        src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${item.uniqid}${item.image}`}
+                        src={`https://loving-kusu-4281.lolipop.io/image/${item.uniqueNumber}${item.image}`}
+                        // src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${item.uniqid}${item.image}`}
                         alt="Rear view of modern home with pool"
                         width="100%"
                         height="190px"
