@@ -8,7 +8,9 @@ import { AuthContext } from '../pages/AuthContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 export const Header = () => {
+
   const auth = useContext(AuthContext)
+  // console.log(auth);
   return (
     <header
       className="container-fluid p-2 mb-3"
@@ -79,7 +81,7 @@ export const Header = () => {
                 </div>
                 {auth?.isAdress ? (
                   <div className="">
-                    <Link href="/">
+                    <Link href={{ pathname: '/mypage' , query: { address: auth.address }}}>
                       <a>
                         <Button
                           title="マイページ"

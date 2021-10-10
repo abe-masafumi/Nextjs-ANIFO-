@@ -22,7 +22,7 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
   const web3 = createAlchemyWeb3(API_URL)
 
   const contract = require('../nftcontractabi.json')
-  const contractAddress = '0x8E85dAa187F2860F9d9dccA0dBBe30B4db487Ac6'
+  const contractAddress = '0x3C71DDFf2325551660c7089e5E085589B62a4E7a'
   const nftContract = new web3.eth.Contract(contract.abi, contractAddress)
 
   async function requestAccount() {
@@ -47,10 +47,11 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
       from: PUBLIC_KEY,
       to: contractAddress,
       nonce: nonce,
-      gas: 500000,
+      gas: 53520,
+      value: "100",
       data: nftContract.methods.mintNFT(PUBLIC_KEY, tokenURI).encodeABI(),
     }
-
+    
     const signPromise = web3.eth.accounts.signTransaction(tx, PRIVATE_KEY)
     signPromise
       .then((signedTx) => {
