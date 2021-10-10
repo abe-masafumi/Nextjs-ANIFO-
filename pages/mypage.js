@@ -8,7 +8,8 @@ export const getServerSideProps = async (context) => {
   console.log(`☀️☀️queryが取得できました--> ${keyword}`)
   // ローカルと本番用で切り替えてね🤗🤗🤗
   const res = await fetch(`https://loving-kusu-4281.lolipop.io/mypage.php`,
-  // const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/mypage.php`, {
+  // const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/mypage.php`, 
+  {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
