@@ -12,10 +12,10 @@ export default function CreateSingleTreasure() {
   const handleSubmit = async (e) => {
     const { ethereum } = window
     if (confirm('送信しますか？')) {
-      if (!ethereum?.selectedAddress) {
-        alert('ウォレットに接続してください')
-        e.preventDefault()
-      }
+      // if (!ethereum?.selectedAddress) {
+      //   alert('ウォレットに接続してください')
+      //   e.preventDefault()
+      // }
     } else {
       alert('送信をていしします')
       e.preventDefault()
