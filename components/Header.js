@@ -7,8 +7,6 @@ import { useContext } from 'react'
 import { AuthContext } from '../pages/AuthContext'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-
-
 export const Header = () => {
 
   const auth = useContext(AuthContext)
