@@ -96,3 +96,9 @@ mintOnlyPage.js X1
 createSingleTreasure.js X1
 Treasures.js X1
 ```
+
+# interface
+> https://qiita.com/t_t238/items/5bbb71d817404b49961c
+
+# setApprovalForAll
+> https://github.com/OpenZeppelin/openzeppelin-contracts-docs/blob/master/demo-docs/api/token/ERC721.md#ERC721.setApprovalForAll(address,bool)
