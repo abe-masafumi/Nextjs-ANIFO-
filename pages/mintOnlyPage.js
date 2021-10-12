@@ -2,7 +2,9 @@ import { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { ethers } from 'ethers'
 import Contract from '../nftcontractabi.json'
-
+// 現在の
+//コントラクトアドレス（marketdeploy）--> 0x9c8Cc3b0DeC2dbdf2ceD454eDF91695BBFd2cff2
+//コントラクトアドレス（mynftdeploy）--> 0xe389cE61ca77F77E413A717f0Ae8c9e296aC16bB
 export const getStaticProps = async (context) => {
   require('dotenv').config()
   const API_URL = process.env.API_URL
@@ -22,12 +24,14 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
   const web3 = createAlchemyWeb3(API_URL)
 
   const contract = require('../nftcontractabi.json')
-  const contractAddress = '0x3C71DDFf2325551660c7089e5E085589B62a4E7a'
+  const contractAddress = '0xe389cE61ca77F77E413A717f0Ae8c9e296aC16bB'
   const nftContract = new web3.eth.Contract(contract.abi, contractAddress)
   nftContract.methods
-    .send({ from: contractAddress })
-    .on('ropsten', function () {
-      etApprovalForAll(contractAddress, true)
+    .tokenURI(1)
+    // .totalSupply() //継承実験-->失敗
+    .call()
+    .then((url) => {
+      console.log(`callしたurl--> ${url}`)
     })
   let accounts = []
 
@@ -43,13 +47,13 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
     // if (typeof window.ethereum !== 'undefined') {
     // await requestAccount()
     await getAccount()
-    console.log(accounts[0])
+    // console.log(accounts[0])
     // const provider = new ethers.providers.Web3Provider(window.ethereum)
     // const signer = provider.getSigner()
     // const contract = new ethers.Contract(contractAddress, Contract.abi, signer)
     // const transaction = await contract.mintNFT(PUBLIC_KEY, tokenURI)
     // await transaction.wait()
-    await ethereum
+    ethereum
       .request({
         method: 'eth_sendTransaction',
         params: [
@@ -119,18 +123,17 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
     //     })
   }
   useEffect(() => {
-    const params = new URL(document.location).searchParams
-    if (params.get('url')) {
-      console.log(`👍phpにMetaDataが作成されました`)
-      const paramsUrl = params.get('url')
-      console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
-      // -----ミント作業-----
-      // 🤗🤗デプロイ時変更🤗🤗
-      mintNFT(paramsUrl)
-
-      // ----ミント作業--end----
-    }
-  }, [])
+      const params = new URL(document.location).searchParams
+      if (params.get('url')) {
+        console.log(`👍phpにMetaDataが作成されました`)
+        const paramsUrl = params.get('url')
+        console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
+        // -----ミント作業-----
+        // 🤗🤗デプロイ時変更🤗🤗
+        mintNFT(paramsUrl)
+        // ----ミント作業--end----
+      }
+    },[])
 
   return (
     <div
