@@ -111,3 +111,5 @@ npx hardhat run scripts/deploy.js --network ropsten
 
 # market
 > https://www.youtube.com/watch?v=4Pm1Furz5HM
+
+> https://www.youtube.com/watch?v=GKJBEEXUha0

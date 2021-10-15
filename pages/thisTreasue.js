@@ -2,15 +2,22 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { Header } from '../components/Header'
 import { Button } from '../components/Button'
 import AuthProvider from './AuthContext'
+import Web3Modal from 'web3modal'
+import { ethers } from 'ethers'
+import axios from 'axios'
 
+import { nftmarketaddress, nftaddress } from '../contracts/config'
+
+import Market from '../nftmarketcontract.json'
+import NFT from '../nftcontractabi.json'
+import { useEffect, useState } from 'react'
 
 export const getServerSideProps = async (context) => {
   const keyword = context.query.name
   console.log(`☀️☀️queryが取得できました--> ${keyword}`)
   // ローカルと本番用で切り替えてね🤗🤗🤗
   // const res = await fetch(`https://loving-kusu-4281.lolipop.io/thisTresure.php`,
-  const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/thisTresure.php`, 
-  {
+  const res = await fetch(`http://localhost/myfile_lab05/%20NFTMetaData/thisTresure.php`, {
     method: 'POST', // or 'PUT'
     headers: {
       'Content-Type': 'application/json',
@@ -29,17 +36,26 @@ export const getServerSideProps = async (context) => {
   }
 }
 
+
+
 export default function thisTreasue({ data }) {
-  console.log(`MetaMaskAddress--> ${data['MetaMaskAddress']}`)
-  console.log(`create_at--> ${data['create_at']}`)
-  console.log(`discription--> ${data['discription']}`)
-  console.log(`image--> ${data['image']}`)
-  console.log(`meta_id--> ${data['meta_id']}`)
-  console.log(`plice--> ${data['plice']}`)
-  console.log(`title--> ${data['title']}`)
-  console.log(`uniqid--> ${data['uniqid']}`)
-  console.log(`update_at--> ${data['update_at']}`)
-  console.log(data)
+
+  const [nfts, setNfts] = useState([])
+  const [loadingState, setLoadingState] = useState('not-loaded')
+  useEffect(() => {
+    loadNFTs()
+  }, [])
+
+  // console.log(`MetaMaskAddress--> ${data['MetaMaskAddress']}`)
+  // console.log(`create_at--> ${data['create_at']}`)
+  // console.log(`discription--> ${data['discription']}`)
+  // console.log(`image--> ${data['image']}`)
+  // console.log(`meta_id--> ${data['meta_id']}`)
+  // console.log(`plice--> ${data['plice']}`)
+  // console.log(`title--> ${data['title']}`)
+  // console.log(`uniqid--> ${data['uniqid']}`)
+  // console.log(`update_at--> ${data['update_at']}`)
+  // console.log(data)
   const addressfirst = data['MetaMaskAddress'].substr(0, 4)
   const addressend = data['MetaMaskAddress'].substr(-4)
 
@@ -50,6 +66,56 @@ export default function thisTreasue({ data }) {
     window.setTimeout(function () {
       copybutton.innerHTML = `${addressfirst}...${addressend}`
     }, 1500)
+  }
+
+
+  async function loadNFTs() {
+    const provider = new ethers.providers.JsonRpcProvider("https://eth-ropsten.alchemyapi.io/v2/g9qYaAX5yLcWpR7Zmi_n7A2Nrbz8a77P")
+    const tokenContract = new ethers.Contract(nftaddress, NFT.abi,provider)
+    console.log(tokenContract);
+    const marketContract = new ethers.Contract(nftmarketaddress, Market.abi,provider)
+    console.log(marketContract);
+
+    const data = await marketContract.fetchMarketItems()
+
+    console.log(data);
+    const items = await Promise.all(
+      data.map(async (i) => {
+        console.log(i);
+        const tokenUri = await tokenContract.tokenURI(i.tokenId)
+        console.log(tokenUri);
+        const meta = await axios.get(tokenUri)
+        let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
+        let item = {
+          price,
+          tokenId: i.tokenId.toNumber(),
+          seller: i.seller,
+          owner: i.owner,
+          image: meta.data.image,
+          name: meta.data.name,
+          description: meta.data.description,
+        }
+        console.log(item);
+        return item
+      }),
+    )
+    setNfts(items)
+    setLoadingState('loaded')
+  }
+  // 購入ボタンを押した時の挙動
+  async function buyNft() {
+    const web3Modal = new Web3Modal()
+    const connection = await web3Modal.connect()
+    const provider = new ethers.providers.Web3Provider(connection)
+    const signer = provider.getSigner()
+    const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+
+    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
+    const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
+      value: price,
+    })
+    await transaction.wait()
+    // loadNFTs()
   }
 
   return (
@@ -77,7 +143,7 @@ export default function thisTreasue({ data }) {
               </div>
               <div className="h3">{data['discription']}</div>
               <div data-toggle="tooltip" title="copy">
-              投稿者：
+                投稿者：
                 <button
                   id="copybutton"
                   style={{ border: 'solid 1px #152032', borderRadius: '5rem' }}
@@ -87,13 +153,7 @@ export default function thisTreasue({ data }) {
                 </button>
               </div>
               <div className="position-absolute bottom-0 mb-4 w-25">
-                <Button
-                  title="作品を購入する"
-                  message="この作品を購入します"
-                  color="#eef0e6"
-                  backColor="#3a526f"
-                  width="100%"
-                />
+                <button onClick={buyNft}>購入する</button>
               </div>
             </div>
           </div>
