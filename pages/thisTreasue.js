@@ -66,7 +66,7 @@ export default function thisTreasue({ data }) {
 
   async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider(
-      'https://ropsten.infura.io/v3/23fe94037fc54cf39e0f3e880c587ec3',
+      'https://eth-ropsten.alchemyapi.io/v2/iUeb4r2sG-jnJZVqEHjZ_emF6rGrceFO'
     )
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     console.log(tokenContract)
@@ -114,7 +114,8 @@ export default function thisTreasue({ data }) {
     const transaction = await contract.createMarketSale(nftaddress, tokenID, {
       value: price,
       gasLimit: 250000,
-      gasPrice: 8000000000,
+      gasPrice: 80000000000,
+      
     })
     // console.log(transaction);
     await transaction.wait()
