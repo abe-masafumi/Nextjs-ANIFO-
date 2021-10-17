@@ -1,10 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Header } from '../components/Header'
-import { Button } from '../components/Button'
 import AuthProvider from './AuthContext'
 import Web3Modal from 'web3modal'
 import { ethers } from 'ethers'
-import axios from 'axios'
 
 import { nftmarketaddress, nftaddress } from '../contracts/config'
 
@@ -36,16 +34,14 @@ export const getServerSideProps = async (context) => {
   }
 }
 
-
-
 export default function thisTreasue({ data }) {
-
-  const [nfts, setNfts] = useState([])
-  const [loadingState, setLoadingState] = useState('not-loaded')
+  const tokenID = Number(data['tokenID'])
+  // const tokenID = data['tokenID'].toNumber();
+  // const [nfts, setNfts] = useState([])
+  // const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
     loadNFTs()
   }, [])
-
   // console.log(`MetaMaskAddress--> ${data['MetaMaskAddress']}`)
   // console.log(`create_at--> ${data['create_at']}`)
   // console.log(`discription--> ${data['discription']}`)
@@ -68,39 +64,42 @@ export default function thisTreasue({ data }) {
     }, 1500)
   }
 
-
   async function loadNFTs() {
-    const provider = new ethers.providers.JsonRpcProvider("https://eth-ropsten.alchemyapi.io/v2/g9qYaAX5yLcWpR7Zmi_n7A2Nrbz8a77P")
-    const tokenContract = new ethers.Contract(nftaddress, NFT.abi,provider)
-    console.log(tokenContract);
-    const marketContract = new ethers.Contract(nftmarketaddress, Market.abi,provider)
-    console.log(marketContract);
-
-    const data = await marketContract.fetchMarketItems()
-
-    console.log(data);
-    const items = await Promise.all(
-      data.map(async (i) => {
-        console.log(i);
-        const tokenUri = await tokenContract.tokenURI(i.tokenId)
-        console.log(tokenUri);
-        const meta = await axios.get(tokenUri)
-        let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
-        let item = {
-          price,
-          tokenId: i.tokenId.toNumber(),
-          seller: i.seller,
-          owner: i.owner,
-          image: meta.data.image,
-          name: meta.data.name,
-          description: meta.data.description,
-        }
-        console.log(item);
-        return item
-      }),
+    const provider = new ethers.providers.JsonRpcProvider(
+      'https://ropsten.infura.io/v3/23fe94037fc54cf39e0f3e880c587ec3',
     )
-    setNfts(items)
-    setLoadingState('loaded')
+    const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
+    console.log(tokenContract)
+    const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, provider)
+    console.log(marketContract)
+
+    // const data = await marketContract.fetchMarketItems()
+
+    // console.log(data);
+    // const items = await Promise.all(
+    // data.map(async (i) => {
+    // console.log(i);
+    // const tokenUri = await tokenContract.tokenURI(i.tokenId)
+    // console.log(tokenUri);
+    // const meta = await axios.get(tokenUri)
+    // let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
+    // let item = {
+    //   price,
+    // tokenId: i.tokenId.toNumber(),
+    //   seller: i.seller,
+    //   owner: i.owner,
+    //   image: meta.data.image,
+    //   name: meta.data.name,
+    //   description: meta.data.description,
+    // }
+    // console.log(item);
+    // console.log(item);
+    // return item
+    // }),
+    // )
+    // setNfts(items)
+    // setLoadingState('loaded')
+    // console.log(nfts);
   }
   // 購入ボタンを押した時の挙動
   async function buyNft() {
@@ -110,12 +109,17 @@ export default function thisTreasue({ data }) {
     const signer = provider.getSigner()
     const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
 
-    const price = ethers.utils.parseUnits(nft.price.toString(), 'ether')
-    const transaction = await contract.createMarketSale(nftaddress, nft.tokenId, {
+    const price = ethers.utils.parseUnits(data['plice'].toString(), 'ether')
+    console.log(`price-->${price}`)
+    const transaction = await contract.createMarketSale(nftaddress, tokenID, {
       value: price,
+      gasLimit: 250000,
+      gasPrice: 8000000000,
     })
+    // console.log(transaction);
     await transaction.wait()
-    // loadNFTs()
+    console.log(transaction)
+    loadNFTs()
   }
 
   return (

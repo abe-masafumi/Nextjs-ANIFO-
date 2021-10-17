@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { ethers } from 'ethers'
-import Contract from '../nftcontractabi.json'
 import Web3Modal from 'web3modal'
+import { nftmarketaddress, nftaddress } from '../contracts/config'
 // 現在の
 //コントラクトアドレス（marketdeploy）--> 0x71328CD3827329Ce12835B37c7cC6b485c600631
 //コントラクトアドレス（mynftdeploy） --> 0x85b4a524Fed06B546cf708028899A87C21e12131
@@ -24,23 +24,23 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
   const web3 = createAlchemyWeb3(API_URL)
 
   const NFT = require('../nftcontractabi.json')
-  const contractAddress = '0x85b4a524Fed06B546cf708028899A87C21e12131'
+  // const contractAddress = '0xE8787AEf000502a1EEe60808b5EC3eA17c9783EA'
   const Market = require('../nftmarketcontract.json')
-  const nftmarketaddress = '0x71328CD3827329Ce12835B37c7cC6b485c600631'
+  // const nftmarketaddress = '0x32E6407CD070F05A09146c6F1E0eE590577CB0F6'
   // const nftContract = new web3.eth.Contract(contract.abi, contractAddress)
   
-  let accounts = []
-  async function getAccount() {
-    accounts = await ethereum.request({ method: 'eth_requestAccounts' })
-  }
+  // let accounts = []
+  // async function getAccount() {
+  //   accounts = await ethereum.request({ method: 'eth_requestAccounts' })
+  // }
   // mint作業の定義
-  async function mintNFT(url,price) {
+  async function mintNFT(url,price,uniqueNumber) {
     const web3Modal = new Web3Modal()
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)    
     const signer = provider.getSigner()
     
-    let contract = new ethers.Contract(contractAddress, NFT.abi, signer)
+    let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
     let transaction = await contract.createToken(url)
     let tx = await transaction.wait()
     let event = tx.events[0]
@@ -57,22 +57,26 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
     let listingPrice = await contract.getListingPrice()
     listingPrice = listingPrice.toString()
 
-    transaction = await contract.createMarketItem(contractAddress, tokenId, price, { value: listingPrice })
+    transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
      tx = await transaction.wait()
      console.log(tx);
     // router.push('/')
+    window.location.href = `http://localhost/myfile_lab05/%20NFTMetaData/updata.php?tokenID=${tokenId}&uniqueNumber=${uniqueNumber}`;
   }
+
   useEffect(() => {
       const params = new URL(document.location).searchParams
       if (params.get('url')) {
         console.log(`👍phpにMetaDataが作成されました`)
         const paramsUrl = params.get('url')
         const paramsPrice = params.get('price')
+        const uniqueNumber = params.get('uniqueNumber')
         console.log(paramsPrice);
+        console.log(uniqueNumber);
         console.log(`〠i get paramasUrl-->  ${paramsUrl}`)
         // -----ミント作業-----
         // 🤗🤗デプロイ時変更🤗🤗
-        mintNFT(paramsUrl,paramsPrice)
+        mintNFT(paramsUrl,paramsPrice,uniqueNumber)
         // ----ミント作業--end----
       }
     },[])
