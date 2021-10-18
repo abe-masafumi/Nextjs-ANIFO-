@@ -1,21 +1,18 @@
 import Link from 'next/link'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button } from '../components/Button'
 import { Header } from '../components/Header'
 import { MainButton } from '../components/MainButton'
 import { Footer } from '../components/Footer'
 import { H6 } from '../components/H6'
 import AuthProvider from './AuthContext'
-import { ButtonImageFile } from '../components/ButtonImageFile'
+import { useState } from 'react'
+import styles from '../components/ButtonImageFile.module.css'
 
 export default function CreateSingleTreasure() {
   const handleSubmit = async (e) => {
+    console.log(e.target);
     const { ethereum } = window
     if (confirm('送信しますか？')) {
-      // if (!ethereum?.selectedAddress) {
-      //   alert('ウォレットに接続してください')
-      //   e.preventDefault()
-      // }
     } else {
       alert('送信をていしします')
       e.preventDefault()
@@ -29,6 +26,49 @@ export default function CreateSingleTreasure() {
     input.setAttribute('name', 'address')
     input.setAttribute('value', address)
     myform.appendChild(input)
+  }
+
+  // 画像のプレビュー
+  const [isHidden, seIstHidden] = useState(false)
+  let inputFile
+  let imgTagu
+  let file
+  let go
+  if (process.browser) {
+    go = document.getElementById('go')
+    inputFile = document.getElementById('inputFile')
+    imgTagu = document.getElementById('imgTagu')
+  }
+  const deleteImage = () => {
+    inputFile.value = ''
+    imgTagu.src = ''
+    go.src = ''
+    seIstHidden(false)
+  }
+
+  const boxHidden = (e) => {
+    if (inputFile.value != '') {
+      seIstHidden(true)
+      const target = e.target.parentElement?.getElementsByTagName('input')
+      file = target?.[0].files?.[0]
+      const reader = new FileReader()
+      // アップロードした画像を設定
+      reader.onload = (function (_file) {
+        return async function (e) {
+          imgTagu.src = e.target.result
+          go.src = e.target.result
+          go.hidden = false
+        }
+      })(file)
+      reader.readAsDataURL(file)
+    }
+  }
+
+  // 写真アップロードボタンの処理
+  const fileUpload = () => {
+    inputFile = document.getElementById('inputFile')
+    inputFile?.click()
+    return
   }
 
   return (
@@ -47,7 +87,7 @@ export default function CreateSingleTreasure() {
           {/* <input type="file" id="avatar" name="file" accept="image/*" /> */}
           <div className="container my-5 h-100">
             <div className="row">
-              <div className="col-8">
+              <div className="col-12">
                 <Link href="/createTreasure">
                   <a>←収集可能なタイプを管理する</a>
                 </Link>
@@ -56,7 +96,32 @@ export default function CreateSingleTreasure() {
                 <div>
                   <h4>ファイルをアップロードする</h4>
                   <div className="border border-info w-100 rounded" style={{ height: 300 }}>
-                    <ButtonImageFile />
+                    {/* ここから画像のinputタグ */}
+                    <div className={styles.container}>
+                      {isHidden || (
+                        <div id="inputBox">
+                          <p>Tresure</p>
+                          <input
+                            // hidden
+                            type="file"
+                            id="inputFile"
+                            name="file"
+                            accept="image/*"
+                            // onChange={boxHidden}
+                          />
+                          {/* <div className={styles.button} onClick={fileUpload}>
+                            Choose File
+                          </div> */}
+                        </div>
+                      )}
+                      {isHidden && (
+                        <div onClick={deleteImage} className={styles.deleteButton}>
+                          X
+                        </div>
+                      )}
+                      <img id="imgTagu" src="" className={styles.imagePreview} />
+                    </div>
+                    {/* ここまで */}
                   </div>
                 </div>
                 <div style={{ height: 40 }}></div>
@@ -66,9 +131,7 @@ export default function CreateSingleTreasure() {
                   <H6 title={'ユーザーがNFTをすぐに購入できるように価格を入力します'} />
                   <div className="row" style={{ justifyContent: 'space-between' }}>
                     {/* コンポーネントをいろんなところで使いまわしているけど、ここだけonclickイベントを入れたい！それはできるのか？コンポーネント側で処理の仕方がわからない。それかコンポーネントを分けるか */}
-                    <MainButton width={250} height={250} title={'1'} />
-                    <MainButton width={250} height={250} title={'2'} />
-                    <MainButton width={250} height={250} title={'3'} />
+                    {/* <MainButton width={250} height={250} title={'1'} /> */}
                   </div>
                 </div>
                 <div style={{ height: 40 }}></div>
@@ -86,8 +149,7 @@ export default function CreateSingleTreasure() {
                 <div>
                   <h4>コレクションを選択</h4>
                   <div className="row">
-                    <MainButton width={250} height={250} title={'1'} />
-                    <MainButton width={250} height={250} title={'2'} />
+                    {/* <MainButton width={250} height={250} title={'1'} /> */}
                   </div>
                 </div>
                 {/* 題名 */}
@@ -107,15 +169,42 @@ export default function CreateSingleTreasure() {
                 <h4>使用料</h4>
                 <H6 title={'推奨：0％、10％、20％、30％。最大は50％です'} />
                 <input type="hidden" name="MAX_FILE_SIZE" value="4194304" />
-                <input type="submit" id="send_mixdata" value={"アイテムを作成する"} style={{color:"#eef0e6", background:"#3a526f", height:"40px", width:"300px" ,borderRadius:"32px",boxShadow:"0px 0px 5px #ccc"}} />
+                <input
+                  type="submit"
+                  id="send_mixdata"
+                  value={'アイテムを作成する'}
+                  style={{
+                    color: '#eef0e6',
+                    background: '#3a526f',
+                    height: '40px',
+                    width: '300px',
+                    borderRadius: '32px',
+                    boxShadow: '0px 0px 5px #ccc',
+                  }}
+                />
               </div>
               {/* プレビュー用スペース */}
-              <div className="col-4">
-                <div className="position-fixed">
-                  <div className="mt-5">プレビュー用スペース</div>
-                  <MainButton width={414} height={500} />
-                </div>
-              </div>
+              {/* <div className="col-4"> */}
+                {/* <div className="position-fixed"> */}
+                  {/* <div className="mt-5 p-2">プレビュー用スペース</div> */}
+                  {/* ここからプレビューボックス */}
+                  {/* <div className={styles.container}> */}
+                    {/* <div
+                      className="border border-info m-2 rounded d-flex align-items-center justify-content-center"
+                      style={{
+                        height: '500px',
+                        width: '414px',
+                        color: '#eef0e6',
+                        boxShadow: '0px 0px 6px #ccc',
+                        background: '#0b1118',
+                      }}
+                    > */}
+                      {/* <img hidden id="go" src="" className={styles.imagePreview} /> */}
+                    {/* </div> */}
+                  {/* </div> */}
+                  {/* ここまでプレビューボックス */}
+                {/* </div> */}
+              {/* </div> */}
             </div>
           </div>
         </form>
