@@ -79,8 +79,8 @@ export default function CreateSingleTreasure() {
           id="myform"
           onSubmit={handleSubmit}
           // ローカルと本番用で切り替えてね🤗🤗🤗
-          // action="https://loving-kusu-4281.lolipop.io/"
-          action="http://localhost/myfile_lab05/%20NFTMetaData/"
+          action="https://loving-kusu-4281.lolipop.io/"
+          // action="http://localhost/myfile_lab05/%20NFTMetaData/"
           method="POST"
           encType="multipart/form-data"
         >
