@@ -119,7 +119,7 @@ export default function CreateSingleTreasure() {
                           X
                         </div>
                       )}
-                      <img id="imgTagu" src="" className={styles.imagePreview} />
+                      {/* <img id="imgTagu" src="" className={styles.imagePreview} /> */}
                     </div>
                     {/* ここまで */}
                   </div>

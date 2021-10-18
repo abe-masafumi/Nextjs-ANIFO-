@@ -35,7 +35,7 @@ export const getServerSideProps = async (context) => {
   }
 }
 
-export default function thisTreasue({ data }) {
+export default function ThisTreasue({ data }) {
   const tokenID = Number(data['tokenID'])
   // const tokenID = data['tokenID'].toNumber();
   // const [nfts, setNfts] = useState([])
