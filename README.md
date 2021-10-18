@@ -95,4 +95,24 @@ thisTreasue.js X2
 mintOnlyPage.js X1
 createSingleTreasure.js X1
 Treasures.js X1
+mypage.js X2
 ```
+
+# コンパイル
+```
+hh compile
+npx hardhat run scripts/deploy.js --network ropsten
+```
+
+# interface
+> https://qiita.com/t_t238/items/5bbb71d817404b49961c
+
+# setApprovalForAll
+> https://github.com/OpenZeppelin/openzeppelin-contracts-docs/blob/master/demo-docs/api/token/ERC721.md#ERC721.setApprovalForAll(address,bool)
+
+# market
+> https://www.youtube.com/watch?v=4Pm1Furz5HM
+
+> https://www.youtube.com/watch?v=GKJBEEXUha0
+
+> https://v5.myetherwallet.com/interface/dashboard

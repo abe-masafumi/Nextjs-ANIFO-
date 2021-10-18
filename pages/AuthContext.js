@@ -36,5 +36,4 @@ const AuthProvider = ({ children }) => {
 
   return <AuthContext.Provider value={{ isAdress,address }}>{children}</AuthContext.Provider>
 }
-
 export default AuthProvider

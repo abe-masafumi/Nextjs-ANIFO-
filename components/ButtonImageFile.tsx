@@ -52,10 +52,10 @@ export const ButtonImageFile = () => {
       {isHidden || (
         <div id="inputBox">
           <p>Tresure</p>
-          <input hidden id="inputFile" type="file" name="" onChange={boxHidden} />
-          <button className={styles.button} onClick={fileUpload}>
+          <input hidden type="file" id="inputFile" name="file" accept="image/*" onChange={boxHidden} />
+          <div className={styles.button} onClick={fileUpload}>
             Choose File
-          </button>
+          </div>
         </div>
       )}
       {isHidden && (
