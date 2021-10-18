@@ -66,7 +66,7 @@ export default function mypage({ data }) {
                       <a>
                         <Image
                           // 🤗🤗デプロイ時変更🤗🤗
-                          src={`https://loving-kusu-4281.lolipop.io/image/${item.uniqid}${item.image}`}
+                          src={`http://loving-kusu-4281.lolipop.io/image/${item.uniqid}${item.image}`}
                           // src={`http://localhost/myfile_lab05/%20NFTMetaData/image/${item.uniqid}${item.image}`}
                           alt="Rear view of modern home with pool"
                           width="100%"
