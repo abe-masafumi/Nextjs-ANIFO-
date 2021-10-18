@@ -37,32 +37,32 @@ export const Header = () => {
               </Link>
             </div>
             <div className="col-1 text-center">
-              <Link href="/">
+              {/* <Link href="/">
                 <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
                   Following
                 </a>
-              </Link>
+              </Link> */}
             </div>
             <div className="col-1 text-center">
-              <Link href="/">
+              {/* <Link href="/">
                 <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
                   Activity
                 </a>
-              </Link>
+              </Link> */}
             </div>
             <div className="col-1 text-center">
-              <Link href="/">
+              {/* <Link href="/">
                 <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
                   How it works
                 </a>
-              </Link>
+              </Link> */}
             </div>
             <div className="col-1 text-center">
-              <Link href="/">
+              {/* <Link href="/">
                 <a style={{ color: '#eef0e6', textDecoration: 'none'}}>
                   Communuty
                 </a>
-              </Link>
+              </Link> */}
             </div>
             {/* ボタンコンポーネント作成 */}
             <div className="col-4 ">

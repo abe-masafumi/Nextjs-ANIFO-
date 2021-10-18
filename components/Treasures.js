@@ -83,18 +83,18 @@ export const Treasures = (props) => {
                           <Box>
                           {item.plice}
                             <Box as="span" color="gray.600" fontSize="sm">
-                              / wk
+                              / ETH
                             </Box>
                           </Box>
                           <Box d="flex" mt="2" alignItems="center">
-                            {Array(5)
+                            {/* {Array(5)
                               .fill('')
                               .map((_, i) => (
                                 <StarIcon key={i} color={i < 4 ? 'teal.500' : 'gray.300'} />
-                              ))}
-                            <Box as="span" ml="2" color="gray.600" fontSize="sm">
+                              ))} */}
+                            {/* <Box as="span" ml="2" color="gray.600" fontSize="sm">
                               34 reviews
-                            </Box>
+                            </Box> */}
                           </Box>
                         </Box>
                       </Box>
