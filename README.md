@@ -92,7 +92,7 @@ npm i --save-dev @types/web3
 ```
 index.tsx X1
 thisTreasue.js X2
-mintOnlyPage.js X1
+mintOnlyPage.js X3
 createSingleTreasure.js X1
 Treasures.js X1
 mypage.js X2
