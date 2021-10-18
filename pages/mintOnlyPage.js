@@ -64,7 +64,7 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
       // window.location.href = `http://localhost/myfile_lab05/%20NFTMetaData/updata.php?tokenID=${tokenId}&uniqueNumber=${uniqueNumber}`;
     } catch (error) {
       alert('実行が中断されました')
-      window.location.href = `https://nextjs-anifo.vercel.app/createSingleTreasure`;
+      window.location.href = `https://nextjs-anifo-steel.vercel.app/createSingleTreasure`;
       // window.location.href = `http://localhost:3000/createSingleTreasure`;
     }
   } 
