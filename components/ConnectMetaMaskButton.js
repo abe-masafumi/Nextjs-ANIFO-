@@ -12,8 +12,13 @@ export const ConnectMetaMaskButton = () => {
       if (useWindow()) {
         // これの赤線が気になる！
         const { ethereum } = window
-        const newAccounts = await ethereum.request({ method: 'eth_requestAccounts' })
-        Router.push('/')
+        if (typeof window.ethereum == 'undefined') {
+          alert('MetaMaskをインストールしてください');
+        } else {
+          const newAccounts = await ethereum.request({ method: 'eth_requestAccounts' })
+          Router.push('/')
+          console.log('aa');
+        }
       }
     } catch (error) {
       console.error(error)

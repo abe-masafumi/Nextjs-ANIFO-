@@ -39,30 +39,33 @@ const Home = ({ API_URL, PUBLIC_KEY, PRIVATE_KEY }) => {
     const connection = await web3Modal.connect()
     const provider = new ethers.providers.Web3Provider(connection)    
     const signer = provider.getSigner()
-    
-    let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
-    let transaction = await contract.createToken(url)
-    let tx = await transaction.wait()
-    let event = tx.events[0]
-    let value = event.args[2]
-    let tokenId = value.toNumber()
-    console.log(tx);
-    console.log(event);
-    console.log(value);
-    console.log(tx.transactionHash);
-    console.log(tokenId);
-  
-    /* then list the item for sale on the marketplace */
-    contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-    let listingPrice = await contract.getListingPrice()
-    listingPrice = listingPrice.toString()
 
-    transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
-     tx = await transaction.wait()
-     console.log(tx);
-    // router.push('/')
-    window.location.href = `http://localhost/myfile_lab05/%20NFTMetaData/updata.php?tokenID=${tokenId}&uniqueNumber=${uniqueNumber}`;
-  }
+    try {
+      let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
+      let transaction = await contract.createToken(url)
+      let tx = await transaction.wait()
+      let event = tx.events[0]
+      let value = event.args[2]
+      let tokenId = value.toNumber()
+      console.log(tx);
+      console.log(event);
+      console.log(value);
+      console.log(tx.transactionHash);
+      console.log(tokenId);
+      /* then list the item for sale on the marketplace */
+      contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+      let listingPrice = await contract.getListingPrice()
+      listingPrice = listingPrice.toString()
+      transaction = await contract.createMarketItem(nftaddress, tokenId, price, { value: listingPrice })
+      tx = await transaction.wait()
+      console.log(tx);
+      // router.push('/')
+      window.location.href = `http://localhost/myfile_lab05/%20NFTMetaData/updata.php?tokenID=${tokenId}&uniqueNumber=${uniqueNumber}`;
+    } catch (error) {
+      alert('実行が中断されました')
+      window.location.href = `http://localhost:3000/createSingleTreasure`;
+    }
+  } 
 
   useEffect(() => {
       const params = new URL(document.location).searchParams
