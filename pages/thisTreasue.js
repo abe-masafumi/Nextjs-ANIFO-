@@ -9,6 +9,7 @@ import { nftmarketaddress, nftaddress } from '../contracts/config'
 import Market from '../nftmarketcontract.json'
 import NFT from '../nftcontractabi.json'
 import { useEffect, useState } from 'react'
+import { Hidden } from '@material-ui/core'
 
 export const getServerSideProps = async (context) => {
   const keyword = context.query.name
@@ -67,7 +68,7 @@ export default function ThisTreasue({ data }) {
 
   async function loadNFTs() {
     const provider = new ethers.providers.JsonRpcProvider(
-      'https://eth-ropsten.alchemyapi.io/v2/iUeb4r2sG-jnJZVqEHjZ_emF6rGrceFO',
+      'https://ropsten.infura.io/v3/23fe94037fc54cf39e0f3e880c587ec3',
     )
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     console.log(tokenContract)
@@ -129,7 +130,7 @@ export default function ThisTreasue({ data }) {
         <Header />
         <div className="container-fluid">
           <div className="row">
-            <div className="col-8 vh-100 d-flex align-items-center justify-content-center">
+            <div className="col-8 vh-100 d-flex align-items-center justify-content-center" style={{overflow:"hidden"}}>
               <div className="text-center">
                 {/* 🤗🤗デプロイ時変更🤗🤗 */}
                 <img src={`https://loving-kusu-4281.lolipop.io/image/${data["uniqid"]}${data["image"]}`} 
