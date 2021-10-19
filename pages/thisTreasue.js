@@ -67,8 +67,9 @@ export default function ThisTreasue({ data }) {
   }
 
   async function loadNFTs() {
+    // infraを使用してデプロイをやり直し infraprovider
     const provider = new ethers.providers.JsonRpcProvider(
-      'https://ropsten.infura.io/v3/23fe94037fc54cf39e0f3e880c587ec3',
+      'https://eth-ropsten.alchemyapi.io/v2/iUeb4r2sG-jnJZVqEHjZ_emF6rGrceFO',
     )
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
     console.log(tokenContract)

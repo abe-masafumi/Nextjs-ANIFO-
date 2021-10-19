@@ -9,7 +9,7 @@ import { Footer } from '../components/Footer'
 export default function connectMyWallet() {
   return (
     <AuthProvider>
-      <div className="vh-100 vw-100 position-fixed" style={{ background: '#0b1118', color: '#eef0e6' }}>
+      <div className="vh-100 position-fixed" style={{ background: '#0b1118', color: '#eef0e6' }}>
         <header style={{ overflow: 'hidden', height: 350 }}>
           {/* ここに大きな画像を入れる */}
           <Image src={fate} alt="fate" className="img-fluid" />
